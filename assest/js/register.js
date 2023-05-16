@@ -1,19 +1,43 @@
 let submitRef = document.getElementById("register-form");
 
+let reg = [];
+
 const handlesubmit = () =>{
 
 let name = document.getElementById("name").value;
-let email = document.getElementById("email").value;
-let pasw = document.getElementById("password").value;
+let Uemail = document.getElementById("email").value;
+let Upasw = document.getElementById("password").value;
 let date = document.getElementById("date").value;
 
-console.log(name,email,pasw,date);
+console.log(name,Uemail,Upasw,date);
 
- window.location = "../user/userhome-page.html";
+let localdata = JSON.parse(localStorage.getItem("Rarr"));
+
+console.log(localdata);
+
+if(localdata){
+    localdata.push(Uemail,Upasw);
+    localStorage.setItem("Rarr",JSON.stringify(localdata));
+}else{
+    reg.push(Uemail,Upasw);
+    localStorage.setItem("Rarr",JSON.stringify(reg));
+}
+
+
+if(submitRef != ""){
+    window.location = "../index.html"
+}else{
+    alert("Please Enter a Details");
+}
+
+
+// let key =localStorage.getItem(key) ;
+// console.log(key);
+
 
 event.preventDefault();
 
 }
 
-
 submitRef.addEventListener("submit",handlesubmit);
+
