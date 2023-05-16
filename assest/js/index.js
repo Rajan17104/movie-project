@@ -19,7 +19,6 @@ const handlesubmit = () =>{
 
     event.preventDefault();
 
-
 }
 
 submitRef.addEventListener("submit",handlesubmit);
