@@ -4,23 +4,37 @@ let reg = [];
 
 const handlesubmit = () =>{
 
-let name = document.getElementById("name").value;
-let Uemail = document.getElementById("email").value;
-let Upasw = document.getElementById("password").value;
-let date = document.getElementById("date").value;
+let username = document.getElementById("name").value;
+let useremail = document.getElementById("email").value;
+let userpasw = document.getElementById("password").value;
+let userdate = document.getElementById("date").value;
 
-console.log(name,Uemail,Upasw,date);
+console.log(username,useremail,userpasw,userdate);
 
-let localdata = JSON.parse(localStorage.getItem("Rarr"));
+let rno = Math.floor(Math.random()*1000);
+
+let localdata = JSON.parse(localStorage.getItem("user"));
 
 console.log(localdata);
 
 if(localdata){
-    localdata.push(Uemail,Upasw);
-    localStorage.setItem("Rarr",JSON.stringify(localdata));
+    localdata.push({
+        id:rno,
+        name:username,
+        email:useremail,
+        password:userpasw,
+        date:userdate
+    });
+    localStorage.setItem("user",JSON.stringify(localdata));
 }else{
-    reg.push(Uemail,Upasw);
-    localStorage.setItem("Rarr",JSON.stringify(reg));
+    reg.push({
+        id:rno,
+        name:username,
+        email:useremail,
+        password:userpasw,
+        date:userdate
+    });
+    localStorage.setItem("user",JSON.stringify(reg));
 }
 
 
