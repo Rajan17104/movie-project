@@ -12,15 +12,17 @@ const handlesubmit = () =>{
         alert("Admin page login successfully");
         window.location = "../admin/adhome-page.html";
     }else{
-   
-
         localdata.map((value) => {
             if (value.email === email && value.password === pasw) {
                 // alert('user Login successfully');
                 window.location = "../user/userhome-page.html"
+            }else if (value.email !== email) {
+                    alert('Enter valid Email Id');
+            } else if (value.pasw !== pasw) {
+                    alert('Enter valid Password');
             }
         });
-    
+
     }
     // else if(email !== 'abc@gmail.com'){
     //     alert("Invaild E-mail");
@@ -34,15 +36,9 @@ const handlesubmit = () =>{
     // }else{
     //     alert("sorry");
     // }
-
-   
    
     event.preventDefault();
 
 }
-// else if (value.email !== email) {
-//     alert('Enter valid Email Id');
-// } else if (value.pasw !== pasw) {
-//     alert('Enter valid Password');
-// }
-submitRef.addEventListener("submit",handlesubmit);
+
+submitRef.addEventListener("submit",handlesubmit); 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,37 @@
     <title>Document</title>
     <link rel="stylesheet" href="../assest/css/adhome-page.css">
 </head>
+
 <body>
-    
+
     <h1>-- Welcome admin home page --</h1>
 
-    <div class="main">
-        <div class="option">
-            <div class="ad">
-                <h3>Admin</h3>
+    <form action="" id="main">
+        <!-- <div id="main"> -->
+        <div id="option">
+            <h3>Admin</h3>
+
+            <button id="cinema">Add cinema</button>
+            <button id="movie">Add Movie</button>
+        </div>
+
+        <div class="main-data">
+            <div id="data">
+                <form action="#" method="post" id="cinemaForm">
+
+                    <input type="text" id="cinemaName" placeholder="Enter cinema name"><br><br>
+
+                    <input type="text" id="cinemalocation" placeholder="Enter location name"><br><br>
+
+                    <input type="text" id="cinemafacilites" placeholder="Enter facilites"><br><br>
+
+                    <input type="submit" id="submitdata">
+
+                </form>
             </div>
-            <p>Add Cinema</p>
-            <p>Add Movie</p>
         </div>
-
-        <div class="data">
-
-        </div>
-    </div>
+    </form>
+    <script src="../assest/js/admin.js"></script>
 </body>
+
 </html>
