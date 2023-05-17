@@ -17,15 +17,6 @@ const handlesubmit = () =>{
     //     alert("Invaild Password");
     // }
 
-    // if(email=== 'abc@gmail.com' && pasw=== '123'){
-    //     alert("Admin page login successfully");
-    //     window.location = "../admin/adhome-page.html";
-    // }else if(email === email){
-    //     window.location = "../user/userhome-page.html"
-    // }else if(pasw === pasw){
-    //     window.location = "../user/userhome-page.html"
-    // }
-
 
     // if("Rarr" === email && "Rarr" === pasw){
     //     window.location = "../user/userhome-page.html"
