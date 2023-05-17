@@ -13,12 +13,12 @@
 
     <h1>-- Welcome admin home page --</h1>
 
-    <form action="" id="main">
-        <!-- <div id="main"> -->
+    <!-- <form action="" id="main"> -->
+    <div id="main">
         <div id="option">
             <h3>Admin</h3>
 
-            <button id="cinema">Add cinema</button>
+            <button id="cinema" onclick="handleCinema()">Add cinema</button>
             <button id="movie">Add Movie</button>
         </div>
 
@@ -36,8 +36,26 @@
 
                 </form>
             </div>
+
+            <table border="1" id="table">
+                <thead>
+                    <tr>
+                        <th>Cinema Name</th>
+                        <th>Location</th>
+                        <th>facilites</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="Tabledata">
+                    
+                </tbody>
+            </table>
+
         </div>
-    </form>
+    </div>
+
+   
+    <!-- </form> -->
 
     
     <script src="../assest/js/admin.js"></script>

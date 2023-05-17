@@ -13,7 +13,7 @@ const handlesubmit = () =>{
         window.location = "../admin/adhome-page.html";
     }else{
         localdata.map((value) => {
-            if (value.email === email && value.password === pasw) {
+             if (value.email === email && value.password === pasw) {
                 // alert('user Login successfully');
                 window.location = "../user/userhome-page.html"
             }else if (value.email !== email) {
