@@ -1,7 +1,5 @@
 let cinemaFormRef = document.getElementById("cinemaForm");
 
-let admin = [];
-
 let uid = null;
 
 let update = false;
@@ -68,22 +66,21 @@ const handleCinemaData = () => {
 
     if (localdata) {
         localdata.push({
-            id: rno,
+            cid: rno,
             name: cName,
             location: clocation,
             facilites: cfacilites
         });
         localStorage.setItem("cinema", JSON.stringify(localdata));
-    } else {
-        admin.push({
-            id: rno,
+    }else {
+        localStorage.setItem("cinema", JSON.stringify([{
+            cid: rno,
             name: cName,
             location: clocation,
             facilites: cfacilites
-        });
-        localStorage.setItem("cinema", JSON.stringify(admin));
+        }]));
+      
     }
-
 
 
     event.preventDefault();
@@ -92,6 +89,7 @@ const handleCinemaData = () => {
 
 
 const handleRemove = (rno) => {
+    
     // console.log(rno);
     let trref = document.getElementById("row" + rno);
 
@@ -102,7 +100,7 @@ const handleRemove = (rno) => {
     trref.remove();
 
     localdata.map((v, i) => {
-        if (v.id === rno) {
+        if (v.cid === rno) {
             localdata.splice(i,1);
             localStorage.setItem("cinema", JSON.stringify(localdata));
         }
@@ -120,7 +118,7 @@ const handleUpdate = (rno) =>{
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    let Fdata = localdata.filter((a,i) => a.id === rno);
+    let Fdata = localdata.filter((a,i) => a.cid === rno);
 
     // console.log(Fdata);
 
@@ -172,7 +170,7 @@ const handleupdateData = () =>{
 //    uid = rno;
 
     let uData = localdata.map((a) => {
-        if(a.id === uid){
+        if(a.cid === uid){
             return{
                 id:uid,
                 name:newname,
@@ -185,16 +183,12 @@ const handleupdateData = () =>{
 
     })
     
-
     console.log(uData);
 
-    localStorage.setItem("cinema", JSON.stringify(localdata));
+    localStorage.setItem("cinema", JSON.stringify(uData));
 
-    localdata[uid]= newName;
  
     update = false;
-
-
 
     let tr =document.getElementById("row" + uid);
 
@@ -207,6 +201,21 @@ const handleupdateData = () =>{
 
 }
 
-// cinemaFormRef.addEventListener("submit",handleinsert);
+
+const handleOnload = () =>{
+
+    let localdata = JSON.parse(localStorage.getItem("cinema"));
+
+    if(localdata){
+        localdata.map((v) =>{
+            handleCinemaData(v.name,v.location,v.facilites)
+        });
+    }
+
+};
+
+
+
 cinemaFormRef.addEventListener("submit", handleDes);
 
+window.onload = handleOnload;
