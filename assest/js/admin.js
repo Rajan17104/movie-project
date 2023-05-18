@@ -58,7 +58,8 @@ const handleCinemaData = () => {
 
     let cinemaFormRef = document.getElementById("Tabledata");
 
-    document.getElementById("table").style.display = "block"
+        document.getElementById("table").style.display = "block"
+
 
     cinemaFormRef.appendChild(trref);
 
@@ -172,7 +173,7 @@ const handleupdateData = () =>{
     let uData = localdata.map((a) => {
         if(a.cid === uid){
             return{
-                id:uid,
+                cid:uid,
                 name:newname,
                 location:newlocation,
                 facilites:newfacilites
@@ -187,7 +188,6 @@ const handleupdateData = () =>{
 
     localStorage.setItem("cinema", JSON.stringify(uData));
 
- 
     update = false;
 
     let tr =document.getElementById("row" + uid);
@@ -206,11 +206,16 @@ const handleOnload = () =>{
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    if(localdata){
-        localdata.map((v) =>{
-            handleCinemaData(v.name,v.location,v.facilites)
-        });
-    }
+    if(localdata ){
+        localdata.map((value) =>{
+            handleCinemaData(value.name,value.location,value.facilites)
+        }); 
+    };
+
+
+    // handleUpdate();
+    // handleupdateData();
+    // handleCinemaData();
 
 };
 
