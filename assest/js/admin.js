@@ -216,6 +216,7 @@ const handleOnload = () =>{
     // handleUpdate();
     // handleupdateData();
     // handleCinemaData();
+    handleCinemaData(value.name,value.location,value.facilites);
 
 };
 

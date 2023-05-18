@@ -9,10 +9,7 @@
     border: 2px solid #000;
     font-size: 20px;
 }
-/* #ad{
-    text-align: center;
-    border: 2px solid #000;
-} */
+
 
 h3{
     text-align: center;
@@ -25,15 +22,13 @@ h3{
     width: 1000px;
     margin-left: 20px;
     border: 2px solid #000;
-    /* display:  none;  */
 }
 
 #data {
-    display: none;
+    /* display: none; */
     width: 200px;
     height: 300px;
     margin: 30px;
-    /* border: 2px solid red; */
 }
 
 
@@ -46,5 +41,6 @@ h3{
 #table{
     display: none;
 }
+
 
  
