@@ -19,9 +19,16 @@
             <option value="">Cinema name</option>
         </select><br><br>
 
-        <input type="text" id="movietime" placeholder="Enter movie time"><br><br>
+        <!-- <input type="text" id="movietime" placeholder="Enter movie time"><br><br> -->
 
-        <input type="file" id="movieposter" ><br><br>
+        <div id="timeData">
+            <input type="text" name="movietime" id="movietime" placeholder="Enter movie time">
+            <button onclick="addTime()">+</button>
+        </div><br><br>
+    
+
+        <label for="">Select File</label> <br>
+        <input type="file" id="movieposter"><br><br>
 
         <input type="submit">
     </form>

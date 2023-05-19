@@ -13,7 +13,7 @@ const handleinsert = () => {
 
     if (localdata) {
         localdata.push({
-            id: rno,
+            cid: rno,
             name: cName,
             location: cLocation,
             facilites: cFacilites
@@ -21,7 +21,7 @@ const handleinsert = () => {
         localStorage.setItem("cinema", JSON.stringify(localdata));
     } else {
         localStorage.setItem("cinema", JSON.stringify([{
-            id: rno,
+            cid: rno,
             name: cName,
             location: cLocation,
             facilites: cFacilites
@@ -89,7 +89,7 @@ const handleRemove = (rno) => {
     trref.remove()
 
     localdata.map((v, i) => {
-        if (v.id === rno) {
+        if (v.cid === rno) {
             localdata.splice(i, 1);
             localStorage.setItem("cinema", JSON.stringify(localdata));
         }
@@ -102,7 +102,7 @@ const handleRemove = (rno) => {
 
 const handleupdate = (rno) => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
-    let Fdata = localdata.filter((v, i) => v.id === rno)
+    let Fdata = localdata.filter((v, i) => v.cid === rno)
 
     document.getElementById("cinemaName").value = Fdata[0].name
     document.getElementById("cinemalocation").value = Fdata[0].location
@@ -135,9 +135,9 @@ const handleupdateData = () => {
    
     let uData = localdata.map((a) => {
         console.log(a);
-        if (a.id === uid) {
+        if (a.cid === uid) {
             return {
-                id: uid,
+                cid: uid,
                 name: newname,
                 location: newlocation,
                 facilites: newfacilites
