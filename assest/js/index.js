@@ -24,19 +24,7 @@ const handlesubmit = () =>{
         });
 
     }
-    // else if(email !== 'abc@gmail.com'){
-    //     alert("Invaild E-mail");
-    // }else if(pasw !== '125'){
-    //     alert("Invaild Password");
-    // }
 
-
-    // if("Rarr" === email && "Rarr" === pasw){
-    //     window.location = "../user/userhome-page.html"
-    // }else{
-    //     alert("sorry");
-    // }
-   
     event.preventDefault();
 
 }

@@ -1,6 +1,6 @@
 let submitRef = document.getElementById("register-form");
 
-let reg = [];
+// let reg = [];
 
 const handlesubmit = () =>{
 
@@ -27,14 +27,13 @@ if(localdata){
     });
     localStorage.setItem("user",JSON.stringify(localdata));
 }else{
-    reg.push({
+    localStorage.setItem("user",JSON.stringify([{
         id:rno,
         name:username,
         email:useremail,
         password:userpasw,
         date:userdate
-    });
-    localStorage.setItem("user",JSON.stringify(reg));
+    }]));
 }
 
 
