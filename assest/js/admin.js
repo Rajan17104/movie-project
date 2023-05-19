@@ -1,227 +1,177 @@
-let cinemaFormRef = document.getElementById("cinemaForm");
-
-let uid = null;
+let cinemaformRef = document.getElementById("cinemaForm")
 
 let update = false;
+let uid = null;
 
-const handleCinema = () => {
-
-    document.getElementById("data").style.display = "block";
-
-    event.preventDefault();
-
-}
-
-const handleCinemaData = () => {
-
-    let cName = document.getElementById("cinemaName").value;
-    let clocation = document.getElementById("cinemalocation").value;
-    let cfacilites = document.getElementById("cinemafacilites").value;
-    // console.log(exeName,exeCost);
-
-    let rno = Math.floor(Math.random() * 100);
-    // console.log(random);
-
-    let trref = document.createElement("tr");
-    trref.setAttribute("id", "row" + rno);
-
-    let td1ref = document.createElement("td");
-    let td2ref = document.createElement("td");
-    let td3ref = document.createElement("td");
-    let td4ref = document.createElement("td");
-
-    let button1 = document.createElement("button");
-    button1.setAttribute("onclick", "handleUpdate(" + rno + ")");
-
-    let button2 = document.createElement("button");
-    button2.setAttribute("onclick", "handleRemove(" + rno + ")");
-
-    let td1Tax = document.createTextNode(cName);
-    let td2Tax = document.createTextNode(clocation);
-    let td3Tax = document.createTextNode(cfacilites);
-    let btn1 = document.createTextNode("Update");
-    let btn2 = document.createTextNode("Remove");
-
-    td4ref.appendChild(button1);
-    td4ref.appendChild(button2);
-
-    td1ref.appendChild(td1Tax);
-    td2ref.appendChild(td2Tax);
-    td3ref.appendChild(td3Tax)
-    button1.appendChild(btn1);
-    button2.appendChild(btn2);
-
-    trref.appendChild(td1ref);
-    trref.appendChild(td2ref);
-    trref.appendChild(td3ref);
-    trref.appendChild(td4ref);
-
-    let cinemaFormRef = document.getElementById("Tabledata");
-
-        document.getElementById("table").style.display = "block"
-
-
-    cinemaFormRef.appendChild(trref);
-
+const handleinsert = () => {
+    let cName = document.getElementById("cinemaName").value
+    let cLocation = document.getElementById("cinemalocation").value
+    let cFacilites = document.getElementById("cinemafacilites").value
+    
     let localdata = JSON.parse(localStorage.getItem("cinema"));
+    let rno = Math.floor(Math.random() * 10);
 
     if (localdata) {
         localdata.push({
-            cid: rno,
+            id: rno,
             name: cName,
-            location: clocation,
-            facilites: cfacilites
+            location: cLocation,
+            facilites: cFacilites
         });
         localStorage.setItem("cinema", JSON.stringify(localdata));
-    }else {
+    } else {
         localStorage.setItem("cinema", JSON.stringify([{
-            cid: rno,
+            id: rno,
             name: cName,
-            location: clocation,
-            facilites: cfacilites
+            location: cLocation,
+            facilites: cFacilites
         }]));
       
+
     }
 
+    handlecinemaData(cName, cLocation, cFacilites, rno);
+
+    document.getElementById("table").style .display ='inline-block'
 
     event.preventDefault();
+}
 
+const handlecinemaData = (cName, cLocation, cFacilites, rno) => {
+
+    let tr = document.createElement("tr");
+    tr.setAttribute("id","row"+rno)
+
+    let td = document.createElement("td");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+    let td3 = document.createElement("td");
+    let button = document.createElement("button");
+    button.setAttribute("onclick", "handleupdate(" + rno + ")")
+
+    let button1 = document.createElement("button");
+    button1.setAttribute("onclick", "handleRemove(" + rno + ")")
+    let tdval = document.createTextNode(cName);
+    let tdval1 = document.createTextNode(cLocation)
+    let tdval2 = document.createTextNode(cFacilites)
+
+    let btn1 = document.createTextNode("Edit");
+    let btn2 = document.createTextNode("Delete");
+
+    let tableref = document.getElementById("Tabledata")
+
+
+    td.appendChild(tdval);
+    tr.appendChild(td);
+
+    td1.appendChild(tdval1);
+    tr.appendChild(td1);
+
+    td2.appendChild(tdval2);
+    tr.appendChild(td2);
+
+
+    button.appendChild(btn1);
+    button1.appendChild(btn2);
+    td3.appendChild(button);
+    td3.appendChild(button1);
+    tr.appendChild(td3)
+
+    tableref.appendChild(tr);
 }
 
 
 const handleRemove = (rno) => {
-    
-    // console.log(rno);
-    let trref = document.getElementById("row" + rno);
-
     let localdata = JSON.parse(localStorage.getItem("cinema"));
-
-    // console.log(trref);
-
-    trref.remove();
+    let trref = document.getElementById("row" + rno)
+    trref.remove()
 
     localdata.map((v, i) => {
-        if (v.cid === rno) {
-            localdata.splice(i,1);
+        if (v.id === rno) {
+            localdata.splice(i, 1);
             localStorage.setItem("cinema", JSON.stringify(localdata));
         }
-    });
+    })
   
-    console.log(localdata);
-
-    event.preventDefault();
-};
+}
 
 
-const handleUpdate = (rno) =>{
+
+const handleupdate = (rno) => {
+    let localdata = JSON.parse(localStorage.getItem("cinema"));
+    let Fdata = localdata.filter((v, i) => v.id === rno)
+
+    document.getElementById("cinemaName").value = Fdata[0].name
+    document.getElementById("cinemalocation").value = Fdata[0].location
+    document.getElementById("cinemafacilites").value = Fdata[0].facilites
 
     update = true;
-
-    let localdata = JSON.parse(localStorage.getItem("cinema"));
-
-    let Fdata = localdata.filter((a,i) => a.cid === rno);
-
-    // console.log(Fdata);
-
-    let upName= Fdata[0].name;
-    let upLocation = Fdata[0].location;
-    let upFacilites = Fdata[0].facilites;
-
-    document.getElementById("cinemaName").value = upName;
-    document.getElementById("cinemalocation").value = upLocation;
-    document.getElementById("cinemafacilites").value = upFacilites;
-
-    
-    uid = rno;
-
-
-    // console.log('sdfd');
-    event.preventDefault();
-
+     uid = rno;
 }
 
-const handleDes = () =>{
 
+const handledes = () => {
     if(update){
-        handleupdateData();
+        handleupdateData(); 
     }else{
-        handleCinemaData();
+        handleinsert();
     }
-
     event.preventDefault();
-
 }
 
-const handleupdateData = () =>{
 
-    console.log("Update call");
-    
+
+const handleupdateData = () => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
-
-   let newName = document.getElementById("cinemaName").value;
-   let newLocation = document.getElementById("cinemalocation").value;
-   let newFacilites = document.getElementById("cinemafacilites").value;
-
-    let newname = newName;
-    let newlocation = newLocation;
-    let newfacilites = newFacilites;
-
-   console.log(newname , newlocation, newfacilites);
-
-//    uid = rno;
-
+   
+    let newname = document.getElementById("cinemaName").value;
+    let newlocation= document.getElementById("cinemalocation").value;
+    let newfacilites = document.getElementById("cinemafacilites").value;
+   
     let uData = localdata.map((a) => {
-        if(a.cid === uid){
-            return{
-                cid:uid,
-                name:newname,
-                location:newlocation,
-                facilites:newfacilites
+        console.log(a);
+        if (a.id === uid) {
+            return {
+                id: uid,
+                name: newname,
+                location: newlocation,
+                facilites: newfacilites
             }
-        }else{
+        } else {
             return a;
         }
-
     })
-    
+    localdata[uid]=uData
+    localStorage.setItem("cinema", JSON.stringify(uData));
     console.log(uData);
 
-    localStorage.setItem("cinema", JSON.stringify(uData));
+    let tr = document.getElementById("row" + uid);
 
-    update = false;
+    tr.children[0].innerHTML = newname
+    tr.children[1].innerHTML = newlocation
+    tr.children[2].innerHTML = newfacilites
 
-    let tr =document.getElementById("row" + uid);
+   event.preventDefault();
 
-    tr.children[0].innerHTML = newname;
-    tr.children[1].innerHTML = newlocation;   
-    tr.children[2].innerHTML = newfacilites;
-    
-
-    event.preventDefault();
 
 }
 
 
-const handleOnload = () =>{
-
+const handleonload = () =>{
+   
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    if(localdata ){
-        localdata.map((value) =>{
-            handleCinemaData(value.name,value.location,value.facilites)
-        }); 
-    };
+    if(localdata){
+        localdata.map((a) =>{
+            handlecinemaData(a.name , a.location,  a.facilites ,a.id);
+
+            document.getElementById("table").style .display ='inline-block'
+            document.getElementById("data").style .display ='block'
+        })
+    }
+}
 
 
-    // handleUpdate();
-    // handleupdateData();
-    // handleCinemaData();
-    handleCinemaData(value.name,value.location,value.facilites);
+window.onload=handleonload();
 
-};
-
-
-
-cinemaFormRef.addEventListener("submit", handleDes);
-
-window.onload = handleOnload;
+cinemaformRef.addEventListener("submit", handledes)

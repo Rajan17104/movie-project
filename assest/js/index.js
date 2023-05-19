@@ -17,7 +17,7 @@ const handlesubmit = () =>{
                 // alert('user Login successfully');
                 window.location = "../user/userhome-page.html"
             }else if (value.email !== email) {
-                    alert('Enter valid Email Id');
+                    alert('Enter valid E-Mail id');
             } else if (value.pasw !== pasw) {
                     alert('Enter valid Password');
             }
