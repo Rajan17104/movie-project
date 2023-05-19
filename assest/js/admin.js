@@ -78,6 +78,8 @@ const handlecinemaData = (cName, cLocation, cFacilites, rno) => {
     tr.appendChild(td3)
 
     tableref.appendChild(tr);
+
+    // event.preventDefault();
 }
 
 
@@ -93,6 +95,7 @@ const handleRemove = (rno) => {
         }
     })
   
+    event.preventDefault();
 }
 
 
@@ -107,6 +110,8 @@ const handleupdate = (rno) => {
 
     update = true;
      uid = rno;
+
+    //  event.preventDefault();
 }
 
 
@@ -166,9 +171,10 @@ const handleonload = () =>{
             handlecinemaData(a.name , a.location,  a.facilites ,a.id);
 
             document.getElementById("table").style .display ='inline-block'
-            document.getElementById("data").style .display ='block'
         })
     }
+
+
 }
 
 
