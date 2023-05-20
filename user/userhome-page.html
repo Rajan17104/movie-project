@@ -5,9 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .main{
+            /* display: flex; */
+            /* border: 2px solid #000; */
+            width: 450px;
+        }
+        #movieName,#location{
+            padding-right: 20px;
+            /* border: 2px solid #000 */
+        }
+        #search{
+            height: 30px;
+            width: 200px;
+            margin-left: 10px;
+        }
+      
+    </style>
 </head>
 <body>
     
     <h1>-- Welcome User home page -- </h1>
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="search" placeholder="search" ><br><br>
+
+    <input type="text" id="print">
+
+    <div class="main">
+        <div id="movieName">
+            <h2>cinema name</h2>
+        </div>
+        <div id="location">
+            <h2>location Name</h2>
+        </div>
+        <div id="facilites">
+            <h2>Facilites</h2>
+        </div>
+    </div>
+   
+
+
+    <script src="../assest/js/user.js"></script>
+
 </body>
-</html> 
+</html>     
