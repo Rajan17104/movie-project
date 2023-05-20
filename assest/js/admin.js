@@ -89,7 +89,7 @@ const handleRemove = (rno) => {
     trref.remove()
 
     localdata.map((v, i) => {
-        if (v.cid === rno) {
+        if (v.id === rno) {
             localdata.splice(i, 1);
             localStorage.setItem("cinema", JSON.stringify(localdata));
         }

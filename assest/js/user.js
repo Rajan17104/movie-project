@@ -2,7 +2,7 @@ const handleonload = () =>{
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    localdata.map((v) =>{
+     localdata.map((v)=>{
 
         let movieRef = document.getElementById("movieName");
 
@@ -36,25 +36,26 @@ const handleonload = () =>{
 
 const search = () =>{
 
-    let input = document.getElementById("search");
-
-    let filter = input.v.toUpperCase();
+    let input = document.getElementById("search").value;
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    localdata.filter((v)=>{
-        // if(input === v.name){
-            document.getElementById("print").innerHTML = input = v.name;
-        // }
+   let data = localdata.filter((v)=>{
+        v.name.includes(input);
 
-        let movie = input.includes("search");
-
-        document.getElementById("filter").innerHTML = movie;
+        console.log(data);
     });
 
-   
+    // document.getElementById("print") = data;
+    print();
 
-  
+    console.log('sdhdh');
+
+}
+
+const print = () =>{
+
+    document.getElementById("print") = input;
 
 }
 
