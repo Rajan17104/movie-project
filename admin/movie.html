@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* #table{
+            display: none;
+        } */
+    </style>
 </head>
 <body>
     
@@ -16,13 +21,14 @@
         <input type="text" id="moviedesc" placeholder="Enter description"><br><br>
 
         <select name="" id="Cinema-option">
-            <option value="">Cinema name</option>
+            <option value="">Cinema name</option
+                >
         </select><br><br>
 
         <!-- <input type="text" id="movietime" placeholder="Enter movie time"><br><br> -->
 
         <div id="timeData">
-            <input type="text" name="movietime" id="movietime" placeholder="Enter movie time">
+            <input type="time" name="movietime" id="movietime" placeholder="Enter movie time">
             <button onclick="addTime()">+</button>
         </div><br><br>
     
@@ -32,6 +38,22 @@
 
         <input type="submit">
     </form>
+
+    <table border="1" id="table">
+        <thead>
+            <tr>
+                <th>Movie Name</th>
+                <th>Description</th>
+                <th>Cinema name</th>
+                <th>Time</th>
+                <th>Image File</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="Tabledata">
+            
+        </tbody>
+    </table>
 
     <script src="../assest/js/movie.js"></script>
 </body>
