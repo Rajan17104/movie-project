@@ -38,14 +38,15 @@
   }
 
   input::placeholder {
-    color: #7e8ba3;
+    /* color: #7e8ba3; */
+    color: #fff;
   }
   
   .form__field {
     margin-bottom: 1rem;
   }
 
-  #login-form input {
+  #movieForm input {
     outline: 0;
     padding: 0.5rem 1rem;
     color: #fff;
@@ -93,6 +94,7 @@
     border-radius: 999px;
     background-color: transparent;
     text-align: center;
+    color: #fff;
   }
 
   .register input[type=email], .register input[type=password] {
@@ -118,5 +120,20 @@
 
   #table{
     display: none;
+    color: #fff;
+  }
+
+  /***movie***/
+
+  #cinema-option{
+    border: 1px solid #242c37;
+    border-radius: 999px;
+    background-color: transparent;
+    text-align: center;
+    color: #fff;
+    padding: 0.5rem 2.5rem;
+  }
+  option{
+    background-color: #000;
     color: #fff;
   }

@@ -38,7 +38,8 @@ input {
 }
 
 input::placeholder {
-  color: #7e8ba3;
+  /* color: #7e8ba3; */
+  color: #fff;
 }
 
 .form__field {

@@ -254,17 +254,27 @@ const handleupdate = (rno) => {
      
     uid = rno;
 
+    while(time[i]){
+        remove.children(i)
+    }
+
+    // for(){
+
+    // }
+
     event.preventDefault();
 }
 
 
 const handledes = () => {
+
     if(update){
         handleupdateData(); 
     }else{
         handleinsert();
     }
     event.preventDefault();
+    
 }
 
 

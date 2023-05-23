@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
             <option value="">Cinema name</option>
         </select><br><br>
 
-        <!-- <input type="text" id="movietime" placeholder="Enter movie time"><br><br> -->
+       
 
         <div id="timeData">
             <input type="time" name="movietime" id="movietime" placeholder="Enter movie time">
@@ -56,4 +56,94 @@
 
     <script src="../assest/js/movie.js"></script>
 </body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Daily UI | #001 - Sign Up</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assest/css/cinema.css">
+</head>
+
+<body class="align">
+
+    <div class="grid align__item">
+
+        <div class="register">
+
+            <h1>Movie Page</h1>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="site__logo" width="56" height="84"
+                viewBox="77.7 214.9 274.7 412">
+                <defs>
+                    <linearGradient id="a" x1="0%" y1="0%" y2="0%">
+                        <stop offset="0%" stop-color="#8ceabb" />
+                        <stop offset="100%" stop-color="#378f7b" />
+                    </linearGradient>
+                </defs>
+                <path fill="url(#a)"
+                    d="M215 214.9c-83.6 123.5-137.3 200.8-137.3 275.9 0 75.2 61.4 136.1 137.3 136.1s137.3-60.9 137.3-136.1c0-75.1-53.7-152.4-137.3-275.9z" />
+            </svg>
+
+
+            <form action="#" method="post" id="movieForm">
+
+                <div class="form__field">
+                    <input type="text" id="moviename" placeholder="Enter movie name"><br><br>
+                </div>
+
+                <div class="form__field">
+                    <input type="text" id="moviedesc" placeholder="Enter description"><br><br>
+                </div>
+
+                <select id="cinema-option">
+                    <option value="">Cinema name</option>
+                </select><br><br>
+
+
+                <div id="timeData">
+                    <input type="time" name="movietime" id="movietime" placeholder="Enter movie time">
+                    <button onclick="addTime()">+</button>
+                </div><br><br>
+
+                <div class="form__field">
+                    <label for="">Select File</label> <br>
+                    <input type="file" id="movieposter">
+                </div>
+
+                <div class="form__field">
+                    <input type="submit" id="submitdata">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <table border="1" id="table">
+        <thead>
+            <tr>
+                <th>Movie Name</th>
+                <th>Description</th>
+                <th>Cinema name</th>
+                <th>Time</th>
+                <th>Image File</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="Tabledata">
+
+        </tbody>
+    </table>
+
+    <script src="../assest/js/movie.js"></script>
+</body>
+
 </html>
