@@ -242,7 +242,7 @@ const handleRemove = (rno) => {
 
 
 
-const handleupdate = (rno,upd) => {
+const handleupdate = (rno) => {
 
     let localmovie = JSON.parse(localStorage.getItem("movie"));
 
@@ -253,17 +253,28 @@ const handleupdate = (rno,upd) => {
     document.getElementById("movietime").value = Fdata[0].opt
     document.getElementById("movietime").value = Fdata[0].time
     document.getElementById("movieposter").value = Fdata[0].poster
+ 
+    let fromtime = document.getElementById("timeData");
+
+    while(fromtime.firstChild){
+        fromtime.firstChild.remove();
+    }
+
+    for(let i=0; i<Fdata.length[0].time.length; i++){
+        addTime();
+        console.log("add time");
+    }
+
+    let Movietime = document.getElementsByName("movietime");
+
+    for(let i=0; i<Fdata.length[0].time.length; i++){
+        console.log(Fdata[0][i]);
+        Movietime[i].value = Fdata[0].time[i]
+    }
 
     update = true;
      
     uid = rno;
-
-    let fromtime = document.getElementById("")
-
-    let Movietime = document.getElementsByName("movietime");
-
-
-
    
 
     event.preventDefault();
