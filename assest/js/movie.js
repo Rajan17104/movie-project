@@ -14,6 +14,8 @@ const handleData =() => {
 
     console.log(mName,mDesc,mTime);
 
+    event.preventDefault();
+
 }
 
 
@@ -56,11 +58,11 @@ const handleinsert = () =>{
     let mName =document.getElementById("moviename").value;
     let mDesc =document.getElementById("moviedesc").value;
     let mOpt = document.getElementById("cinema-option").value;
-    let mTime =document.getElementById("movietime").value;
+    // let mTime =document.getElementById("movietime").value;
     let mposter =document.getElementById("movieposter").value;
 
     let filepath = movieposter.files[0].name;
-    let path ='../assest/image/'  + filepath;
+    let path ='../assest/image/' + filepath;
   
     console.log(mOpt);
 
@@ -71,7 +73,6 @@ const handleinsert = () =>{
     for(let i=0; i<time.length; i++){
         arr.push(time[i].value);
     }
-
 
     console.log(arr); 
 
@@ -157,7 +158,7 @@ const removeTime = (rno) =>{
     }
     console.log(arr);    
 
-    // event.preventDefault();
+    event.preventDefault();
 
 }
 
@@ -259,7 +260,6 @@ const handleRemove = (rno) => {
 const handleupdate = (rno) => {
 
     let localmovie = JSON.parse(localStorage.getItem("movie"));
-
     let Fdata = localmovie.filter((v, i) => v.mid === rno)
 
     document.getElementById("moviename").value = Fdata[0].name
@@ -284,11 +284,9 @@ const handleupdate = (rno) => {
     }
 
     update = true;
-     
     uid = rno;
    
-
-    event.preventDefault();
+    // event.preve ntDefault();
 }
 
 
@@ -299,6 +297,7 @@ const handledes = () => {
     }else{
         handleinsert();
     }
+    
     event.preventDefault();
     
 }
