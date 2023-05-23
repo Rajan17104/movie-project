@@ -58,6 +58,9 @@ const handleinsert = () =>{
     let mOpt = document.getElementById("cinema-option").value;
     let mTime =document.getElementById("movietime").value;
     let mposter =document.getElementById("movieposter").value;
+
+    let filepath = movieposter.files[0].name;
+    let path ='../assest/image/'  + filepath;
   
     console.log(mOpt);
 
@@ -81,7 +84,7 @@ const handleinsert = () =>{
             desc:mDesc,
             opt:mOpt,
             time:arr,
-            poster:mposter,
+            poster:path,
         });
         localStorage.setItem("movie", JSON.stringify(localmovie));
     } else {
@@ -91,7 +94,7 @@ const handleinsert = () =>{
             desc:mDesc,
             opt:mOpt,
             time:arr,
-            poster:mposter,
+            poster:path,
         }]));
     }
 
@@ -154,12 +157,12 @@ const removeTime = (rno) =>{
     }
     console.log(arr);    
 
-    event.preventDefault()
+    // event.preventDefault();
 
 }
 
 
-const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
+const handlemovieData =(mName,mDesc,mOpt,mTime,path,rno) => {
 
     let tr = document.createElement("tr");
     tr.setAttribute("id","row"+rno);
@@ -169,6 +172,8 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
     let movieOptionE = document.createElement("td");
     let movieTimeE = document.createElement("td");
     let moviePosterE = document.createElement("td");
+   
+
     let movieActionE =document.createElement("td");
 
     let button = document.createElement("button");
@@ -181,13 +186,22 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
     let movieDescT = document.createTextNode(mDesc)
     let movieOptionT = document.createTextNode(mOpt)
     let movieTimeT = document.createTextNode(mTime)
-    let moviePosterT = document.createTextNode(mposter)
+    let moviePosterT = document.createTextNode(path);
 
     let btn1 = document.createTextNode("Edit");
     let btn2 = document.createTextNode("Delete");
 
     let tableref = document.getElementById("Tabledata");
 
+    let img = document.createElement("img");
+    img.setAttribute("src" ,path)
+
+    let td5div = document.createElement("div");
+    td5div.appendChild(img);
+    td5div.setAttribute("id","divtd6");
+    moviePosterE.appendChild(td5div);
+
+    tr.appendChild(moviePosterE)
 
     movieNameE.appendChild(movieNameT);
     tr.appendChild(movieNameE);
@@ -210,7 +224,7 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
     movieActionE.appendChild(button);
     movieActionE.appendChild(button1);
 
-    tr.appendChild(movieActionE)
+    tr.appendChild(movieActionE);
 
     tableref.appendChild(tr);
 
@@ -254,22 +268,19 @@ const handleupdate = (rno) => {
     document.getElementById("movietime").value = Fdata[0].time
     document.getElementById("movieposter").value = Fdata[0].poster
  
-    let fromtime = document.getElementById("timeData");
+    let timefrom = document.getElementById("timeData");
+    let movietime = document.getElementsByName("movietime");
 
-    while(fromtime.firstChild){
-        fromtime.firstChild.remove();
+    while(timefrom.firstChild){
+        timefrom.removeChild(timefrom.firstChild);
     }
 
-    for(let i=0; i<Fdata.length[0].time.length; i++){
+    for(let i=0; i<Fdata[0].time.length;i++){
         addTime();
-        console.log("add time");
     }
 
-    let Movietime = document.getElementsByName("movietime");
-
-    for(let i=0; i<Fdata.length[0].time.length; i++){
-        console.log(Fdata[0][i]);
-        Movietime[i].value = Fdata[0].time[i]
+    for(let i=0; i<Fdata[0].time.length;i++){
+        movietime[i].value=Fdata[0].time[i];
     }
 
     update = true;
