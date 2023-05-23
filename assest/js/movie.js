@@ -1,6 +1,6 @@
 let movieRef = document.getElementById("movieForm");
 
-let  arr = [];
+
 let update = false;
 let uid = null;
 
@@ -30,7 +30,7 @@ const handleonload = () => {
 
         optElem.appendChild(optTax);
 
-        optElem.setAttribute("value",v.id);
+        optElem.setAttribute("value",v.name);
         
         optRef.appendChild(optElem);
 
@@ -50,6 +50,8 @@ const handleonload = () => {
 
 
 const handleinsert = () =>{
+
+    let  arr = [];
 
     let mName =document.getElementById("moviename").value;
     let mDesc =document.getElementById("moviedesc").value;
@@ -77,7 +79,7 @@ const handleinsert = () =>{
             mid: rno,
             name: mName,
             desc:mDesc,
-            // opt:mOpt,
+            opt:mOpt,
             time:arr,
             poster:mposter,
         });
@@ -87,13 +89,13 @@ const handleinsert = () =>{
             mid: rno,
             name: mName,
             desc:mDesc,
-            // opt:mOpt,
+            opt:mOpt,
             time:arr,
             poster:mposter,
         }]));
     }
 
-    handlemovieData(mName,mDesc,mOpt,mTime,mposter,rno);
+    handlemovieData(mName,mDesc,mOpt,arr,mposter,rno);
 
     document.getElementById("table").style .display ='inline-block'
 
@@ -137,6 +139,7 @@ const addTime = () => {
     timeForm.appendChild(innerdiv);
 
     event.preventDefault();
+
 }
 
 const removeTime = (rno) =>{
@@ -239,7 +242,7 @@ const handleRemove = (rno) => {
 
 
 
-const handleupdate = (rno) => {
+const handleupdate = (rno,upd) => {
 
     let localmovie = JSON.parse(localStorage.getItem("movie"));
 
@@ -247,6 +250,7 @@ const handleupdate = (rno) => {
 
     document.getElementById("moviename").value = Fdata[0].name
     document.getElementById("moviedesc").value = Fdata[0].desc
+    document.getElementById("movietime").value = Fdata[0].opt
     document.getElementById("movietime").value = Fdata[0].time
     document.getElementById("movieposter").value = Fdata[0].poster
 
@@ -254,13 +258,13 @@ const handleupdate = (rno) => {
      
     uid = rno;
 
-    while(time[i]){
-        remove.children(i)
-    }
+    let fromtime = document.getElementById("")
 
-    // for(){
+    let Movietime = document.getElementsByName("movietime");
 
-    // }
+
+
+   
 
     event.preventDefault();
 }
@@ -284,6 +288,7 @@ const handleupdateData = () => {
    
     let newname = document.getElementById("moviename").value;
     let newdesc= document.getElementById("moviedesc").value;
+    let newopt = document.getElementById("cinema-option").value;
     let newtime = document.getElementById("movietime").value;
     let newposter = document.getElementById("movieposter").value;
 
@@ -295,6 +300,7 @@ const handleupdateData = () => {
                 mid: uid,
                 name: newname,
                 desc: newdesc,
+                opt:newopt,
                 time: newtime,
                 poster:newposter
             }
@@ -312,8 +318,9 @@ const handleupdateData = () => {
 
     tr.children[0].innerHTML = newname
     tr.children[1].innerHTML = newdesc
-    tr.children[2].innerHTML = newtime
-    tr.children[3].innerHTML = newposter
+    tr.children[2].innerHTML =  newopt
+    tr.children[3].innerHTML = newtime
+    tr.children[4].innerHTML = newposter
 
    event.preventDefault();
 
