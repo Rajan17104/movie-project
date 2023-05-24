@@ -1,6 +1,6 @@
 let movieRef = document.getElementById("movieForm");
 
-
+let  arr = [];
 let update = false;
 let uid = null;
 
@@ -9,10 +9,12 @@ const handleData =() => {
 
     let mName =document.getElementById("moviename").value;
     let mDesc =document.getElementById("moviedesc").value;
+    let mOpt = document.getElementById("cinema-option").value;
     let mTime =document.getElementById("movietime").value;
+    let mposter =document.getElementById("movieposter").value;
 
 
-    console.log(mName,mDesc,mTime);
+    console.log(mName,mDesc,mOpt,mTime,mposter);
 
     event.preventDefault();
 
@@ -54,16 +56,14 @@ const handleonload = () => {
 
 const handleinsert = () =>{
 
-    let  arr = [];
-
     let mName =document.getElementById("moviename").value;
     let mDesc =document.getElementById("moviedesc").value;
     let mOpt = document.getElementById("cinema-option").value;
-    // let mTime =document.getElementById("movietime").value;
+    let mTime =document.getElementById("movietime").value;
     let mposter =document.getElementById("movieposter").value;
 
-    // let filepath = movieposter.files[0].name;
-    // let path ='../assest/image/' + filepath;
+    let filepath = movieposter.files[0].name;
+    let path ='../assest/image/' + filepath;
   
     console.log(mOpt);
 
@@ -87,7 +87,7 @@ const handleinsert = () =>{
             desc:mDesc,
             opt:mOpt,
             time:arr,
-            poster:mposter,
+            poster:path,
         });
         localStorage.setItem("movie", JSON.stringify(localmovie));
     } else {
@@ -98,7 +98,7 @@ const handleinsert = () =>{
             desc:mDesc,
             opt:mOpt,
             time:arr,
-            poster:mposter,
+            poster:path,
         }]));
     }
 
@@ -166,7 +166,7 @@ const removeTime = (rno) =>{
 }
 
 
-const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
+const handlemovieData =(mName,mDesc,mOpt,mTime,path,rno) => {
 
     let tr = document.createElement("tr");
     tr.setAttribute("id","row"+rno);
@@ -190,20 +190,20 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
     let movieDescT = document.createTextNode(mDesc)
     let movieOptionT = document.createTextNode(mOpt)
     let movieTimeT = document.createTextNode(mTime)
-    let moviePosterT = document.createTextNode(mposter);
+    let moviePosterT = document.createTextNode(path);
 
     let btn1 = document.createTextNode("Edit");
     let btn2 = document.createTextNode("Delete");
 
     let tableref = document.getElementById("Tabledata");
 
-    // let img = document.createElement("img");
-    // img.setAttribute("src" ,path)
+    let img = document.createElement("img");
+    img.setAttribute("src" ,path)
 
-    // let td5div = document.createElement("div");
-    // td5div.appendChild(img);
-    // td5div.setAttribute("id","divtd6");
-    // moviePosterE.appendChild(td5div);
+    let td5div = document.createElement("div");
+    td5div.appendChild(img);
+    td5div.setAttribute("id","divtd6");
+    moviePosterE.appendChild(td5div);
 
     tr.appendChild(moviePosterE)
 
@@ -240,6 +240,7 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
 
 
 
+
 const handleRemove = (rno) => {
 
     let localmovie = JSON.parse(localStorage.getItem("movie"));
@@ -265,14 +266,10 @@ const handleupdate = (rno) => {
     let localmovie = JSON.parse(localStorage.getItem("movie"));
     let Fdata = localmovie.filter((v, i) => v.mid === rno)
 
-    document.getElementById("moviename").value = Fdata[0].name
-    document.getElementById("moviedesc").value = Fdata[0].desc
-    document.getElementById("movietime").value = Fdata[0].opt
-    document.getElementById("movietime").value = Fdata[0].time
-    document.getElementById("movieposter").value = Fdata[0].poster
+    update = true;
+    uid = rno;
  
     let timefrom = document.getElementById("timeData");
-    let movietime = document.getElementsByName("movietime");
 
     while(timefrom.firstChild){
         timefrom.removeChild(timefrom.firstChild);
@@ -282,14 +279,20 @@ const handleupdate = (rno) => {
         addTime();
     }
 
+    let movietime = document.getElementsByName("movietime");
+
+
     for(let i=0; i<Fdata[0].time.length;i++){
         movietime[i].value=Fdata[0].time[i];
     }
 
-    update = true;
-    uid = rno;
-   
-    // event.preve ntDefault();
+    document.getElementById("moviename").value = Fdata[0].name
+    document.getElementById("moviedesc").value = Fdata[0].desc
+    document.getElementById("cinema-option").value = Fdata[0].opt
+    document.getElementById("movietime").value = Fdata[0].time
+    document.getElementById("movieposter").value = Fdata[0].poster
+ 
+    event.preventDefault();
 }
 
 
@@ -307,21 +310,35 @@ const handledes = () => {
 
 
 const handleupdateData = () => {
-
-    let localmovie = JSON.parse(localStorage.getItem("movie"));
    
     let newname = document.getElementById("moviename").value;
     let newdesc= document.getElementById("moviedesc").value;
     let newopt = document.getElementById("cinema-option").value;
-    let newtime = document.getElementById("movietime").value;
-    let newposter = document.getElementById("movieposter").value;
+    let newtime = document.getElementById("movietime");
+    let newposter = document.getElementById("movieposter");
 
-   
+
+    
+    // let mName =document.getElementById("moviename").value;
+    // let mDesc =document.getElementById("moviedesc").value;
+    // let mOpt = document.getElementById("cinema-option").value;
+    // let mTime =document.getElementById("movietime").value;
+    // let mposter =document.getElementById("movieposter").value;
+
+    let localmovie = JSON.parse(localStorage.getItem("movie"));
+
+    // let filepath = movieposter.files[0].name;
+    // let path ='../assest/image/' + filepath;
+  
+    for(let i=0; i<newtime.length; i++){
+        arr.push(newtime[i].value);
+   }
     let uData = localmovie.map((a) => {
         console.log(a);
         if (a.mid === uid) {
             return {
                 mid: uid,
+                cid:mOpt,  
                 name: newname,
                 desc: newdesc,
                 opt:newopt,
@@ -331,9 +348,10 @@ const handleupdateData = () => {
         } else {
             return a;
         }
+
     });
 
-    localmovie[uid]=uData
+    localmovie[uid]=uData;
 
     localStorage.setItem("movie", JSON.stringify(uData));
     console.log(uData);
@@ -345,6 +363,7 @@ const handleupdateData = () => {
     tr.children[2].innerHTML =  newopt
     tr.children[3].innerHTML = newtime
     tr.children[4].innerHTML = newposter
+
 
    event.preventDefault();
 
