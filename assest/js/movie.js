@@ -33,6 +33,7 @@ const handleonload = () => {
         optElem.appendChild(optTax);
 
         optElem.setAttribute("value",v.name);
+        optElem.setAttribute("value",v.cid);
         
         optRef.appendChild(optElem);
 
@@ -61,8 +62,8 @@ const handleinsert = () =>{
     // let mTime =document.getElementById("movietime").value;
     let mposter =document.getElementById("movieposter").value;
 
-    let filepath = movieposter.files[0].name;
-    let path ='../assest/image/' + filepath;
+    // let filepath = movieposter.files[0].name;
+    // let path ='../assest/image/' + filepath;
   
     console.log(mOpt);
 
@@ -81,21 +82,23 @@ const handleinsert = () =>{
     if (localmovie) {
         localmovie.push({
             mid: rno,
+            cid: mOpt,
             name: mName,
             desc:mDesc,
             opt:mOpt,
             time:arr,
-            poster:path,
+            poster:mposter,
         });
         localStorage.setItem("movie", JSON.stringify(localmovie));
     } else {
         localStorage.setItem("movie", JSON.stringify([{
             mid: rno,
+            cid: mOpt,
             name: mName,
             desc:mDesc,
             opt:mOpt,
             time:arr,
-            poster:path,
+            poster:mposter,
         }]));
     }
 
@@ -163,7 +166,7 @@ const removeTime = (rno) =>{
 }
 
 
-const handlemovieData =(mName,mDesc,mOpt,mTime,path,rno) => {
+const handlemovieData =(mName,mDesc,mOpt,mTime,mposter,rno) => {
 
     let tr = document.createElement("tr");
     tr.setAttribute("id","row"+rno);
@@ -187,20 +190,20 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,path,rno) => {
     let movieDescT = document.createTextNode(mDesc)
     let movieOptionT = document.createTextNode(mOpt)
     let movieTimeT = document.createTextNode(mTime)
-    let moviePosterT = document.createTextNode(path);
+    let moviePosterT = document.createTextNode(mposter);
 
     let btn1 = document.createTextNode("Edit");
     let btn2 = document.createTextNode("Delete");
 
     let tableref = document.getElementById("Tabledata");
 
-    let img = document.createElement("img");
-    img.setAttribute("src" ,path)
+    // let img = document.createElement("img");
+    // img.setAttribute("src" ,path)
 
-    let td5div = document.createElement("div");
-    td5div.appendChild(img);
-    td5div.setAttribute("id","divtd6");
-    moviePosterE.appendChild(td5div);
+    // let td5div = document.createElement("div");
+    // td5div.appendChild(img);
+    // td5div.setAttribute("id","divtd6");
+    // moviePosterE.appendChild(td5div);
 
     tr.appendChild(moviePosterE)
 
