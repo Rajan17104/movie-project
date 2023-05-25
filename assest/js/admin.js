@@ -9,7 +9,7 @@ const handleinsert = () => {
     let cFacilites = document.getElementById("cinemafacilites").value
     
     let localdata = JSON.parse(localStorage.getItem("cinema"));
-    let rno = Math.floor(Math.random() * 10);
+    let rno = Math.floor(Math.random() * 10000);
 
     if (localdata) {
         localdata.push({

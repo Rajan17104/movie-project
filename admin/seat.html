@@ -9,15 +9,26 @@
 <body>
 
     <h1>Seating page</h1>
+
+    <form action="" id="seatForm">
     
-    <select id="cinema-option" onchange="handlemovie()">
-        <option value="cid">Cinema name</option>
-    </select><br><br>
+        <select id="cinema-option" onchange="handlemovie()">
+            <option value="">Cinema name</option>
+        </select>
 
-    <select name="" id="inOption" >
-        <option value="cid"></option>
-    </select>
+        <select id="inOption" onchange="handlemovieTime()">
+            <option value="">Movie name</option>
+        </select>
 
+        <select name="" id="timeOption">
+            <option value="">Movie Time</option>
+        </select>
+
+        <input type="text" id="seat">
+
+        <input type="submit">
+
+    </form>
 
     <script src="../assest/js/seat.js"></script>
 </body>
