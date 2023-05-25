@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../assest/css/seat.css">
 </head>
 <body>
 
@@ -16,7 +17,7 @@
             <option value="">Cinema name</option>
         </select>
 
-        <select id="inOption" onchange="handlemovieTime()">
+        <select id="movie-option" onchange="handlemovieTime()">
             <option value="">Movie name</option>
         </select>
 
@@ -24,11 +25,26 @@
             <option value="">Movie Time</option>
         </select>
 
-        <input type="text" id="seat">
+        <input type="text" id="seat" placeholder="seat">
 
         <input type="submit">
 
     </form>
+
+    <table border="1" id="table">
+        <thead>
+            <tr>
+                <th>Cinema option</th>
+                <th>Movie option</th>
+                <th>Time</th>
+                <th>seat</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="Tabledata">
+
+        </tbody>
+    </table>
 
     <script src="../assest/js/seat.js"></script>
 </body>
