@@ -111,7 +111,7 @@ const handleupdate = (rno) => {
     update = true;
      uid = rno;
 
-    //  event.preventDefault();
+     event.preventDefault();
 }
 
 
@@ -168,7 +168,7 @@ const handleonload = () =>{
 
     if(localdata){
         localdata.map((a) =>{
-            handlecinemaData(a.name , a.location,  a.facilites ,a.id);
+            handlecinemaData(a.name , a.location,  a.facilites ,a.cid);
 
             document.getElementById("table").style .display ='inline-block'
         })

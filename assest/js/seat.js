@@ -23,11 +23,11 @@ const handleonload = () => {
 
 const handlemovie = () =>{
 
-    let opt = document.getElementById("cinema-option").value;
-    console.log(opt);
-
     let localmovie = JSON.parse(localStorage.getItem("movie"));
     console.log(localmovie);
+
+    let opt = document.getElementById("cinema-option").value;
+    console.log(opt);
 
     let mData = localmovie.filter((v,i) => v.cid === opt);
     console.log(mData);
@@ -44,26 +44,24 @@ const handlemovie = () =>{
 }
 
 const handlemovieTime = () =>{
-  
 
-let localmovie = JSON.parse(localStorage.getItem("movie"));
-console.log(localmovie);
+    let localmovie = JSON.parse(localStorage.getItem("movie"));
+    console.log(localmovie);
 
-let optTime = document.getElementById("inOption");
-console.log(optTime);
+    let optTime = document.getElementById("inOption").value;
+    console.log(optTime);
 
 
-let mTime = localmovie.filter((v,i) => v.mid === optTime);
-console.log(mTime);
+    let mTime = localmovie.filter((v) => v.mid === optTime);
+    console.log(mTime);
 
-let print;
+    let print;
 
-localmovie.map((v,i) =>{
-   print += '<option>' +v.time+ '</option>'
+    localmovie.map((v,i) =>{
+        print += '<option>' +v.time+ '</option>'
+    });
 
-});
-
-document.getElementById("timeOption").innerHTML = print;
+    document.getElementById("timeOption").innerHTML = print;
      
 }
 

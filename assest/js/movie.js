@@ -47,7 +47,7 @@ const handleonload = () => {
         localmovie.map((a) =>{
             handlemovieData(a.name , a.desc, a.opt, a.time ,a.poster, a.mid);
 
-            document.getElementById("table").style .display ='inline-block'
+            document.getElementById("table").style .display ='block'
         })
     }
 
@@ -104,7 +104,7 @@ const handleinsert = () =>{
 
     handlemovieData(mName,mDesc,mOpt,arr,mposter,rno);
 
-    document.getElementById("table").style .display ='inline-block'
+    document.getElementById("table").style .display ='block';
 
     event.preventDefault();
 
@@ -264,15 +264,16 @@ const handleRemove = (rno) => {
 const handleupdate = (rno) => {
 
     let localmovie = JSON.parse(localStorage.getItem("movie"));
-    let Fdata = localmovie.filter((v, i) => v.mid === rno)
 
     update = true;
     uid = rno;
  
+    let Fdata = localmovie.filter((v, i) => v.mid === rno)
+
     let timefrom = document.getElementById("timeData");
 
     while(timefrom.firstChild){
-        timefrom.removeChild(timefrom.firstChild);
+        timefrom.firstChild.remove();
     }
 
     for(let i=0; i<Fdata[0].time.length;i++){
@@ -281,7 +282,6 @@ const handleupdate = (rno) => {
 
     let movietime = document.getElementsByName("movietime");
 
-
     for(let i=0; i<Fdata[0].time.length;i++){
         movietime[i].value=Fdata[0].time[i];
     }
@@ -289,8 +289,8 @@ const handleupdate = (rno) => {
     document.getElementById("moviename").value = Fdata[0].name
     document.getElementById("moviedesc").value = Fdata[0].desc
     document.getElementById("cinema-option").value = Fdata[0].opt
-    document.getElementById("movietime").value = Fdata[0].time
-    document.getElementById("movieposter").value = Fdata[0].poster
+    // document.getElementsByName("movietime") = Fdata[0].time
+    // document.getElementById("movieposter") = Fdata[0].poster
  
     event.preventDefault();
 }
