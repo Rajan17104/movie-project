@@ -30,8 +30,7 @@ const handleonload = () => {
 
     if (localseat) {
         localseat.map((a) => {
-            handleseatData(a.cid, a.mid, a.sid, a.time, a.seat);
-
+            handleseatData(a.cid, a.mid, a.time, a.time, a.seat);
             document.getElementById("table").style.display = 'block'
         })
     }
@@ -259,12 +258,11 @@ const handleupdateData = () => {
     let newcinemaname = document.getElementById("cinema-option").value;
     let newmoviename= document.getElementById("movie-option").value;
     let newtime = document.getElementById("timeOption").value;
-    let newseat = document.getElementsByName("seat");
+    let newseat = document.getElementsByName("seat").value;
 
     let localseat = JSON.parse(localStorage.getItem("seat"));
 
-
-    let Data = localseat.map((a) => {
+    let uData = localseat.map((a) => {
         console.log(a);
         if (a.sid === uid) {
             return {
@@ -282,16 +280,15 @@ const handleupdateData = () => {
 
     localseat[uid]=uData;
 
-    localStorage.setItem("movie", JSON.stringify(Data));
+    localStorage.setItem("movie", JSON.stringify(uData));
     console.log(uData);
 
     let tr = document.getElementById("row" + uid);
 
-    tr.children[0].innerHTML = newcinemaname
-    tr.children[1].innerHTML = newmoviename
-    tr.children[2].innerHTML =  newtime
-    tr.children[3].innerHTML = newseat
-
+    tr.children[0].innerHTML = newcinemaname;
+    tr.children[1].innerHTML = newmoviename;
+    tr.children[2].innerHTML =  newtime;
+    tr.children[3].innerHTML = newseat;
 
    event.preventDefault();
 
