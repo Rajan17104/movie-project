@@ -252,12 +252,14 @@ const handleupdate = (rno) => {
     uid = rno;
 
     document.getElementById("cinema-option").value = Fdata[0].cid
+    handlemovie();
     document.getElementById("movie-option").value = Fdata[0].mid
+    handlemovieTime();
     document.getElementById("timeOption").value = Fdata[0].time
     document.getElementById("seat").value = Fdata[0].seat.length;
 
 
-    event.preventDefault(); 
+    // event.preventDefault(); 
 
 }
 
@@ -290,7 +292,7 @@ const handleupdateData = () => {
     let MovieName;
 
     localdata.map((v) => {
-        if (v.cid === cinema) {
+        if (v.cid === newcinemaname) {
             cinemaName = v.name;
         };
     });
@@ -298,7 +300,7 @@ const handleupdateData = () => {
 
 
     localmovie.map((v) => {
-        if (v.mid === movie) {
+        if (v.mid === newmoviename) {
             MovieName = v.name;
         };
     });
@@ -326,9 +328,9 @@ const handleupdateData = () => {
 
     });
 
-    localseat[uid]=uData;
+    // localseat[uid]=uData;
 
-    localStorage.setItem("movie", JSON.stringify(uData));
+    localStorage.setItem("seat", JSON.stringify(uData));
     console.log(uData);
 
     let tr = document.getElementById("row" + uid);
