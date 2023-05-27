@@ -45,6 +45,7 @@ const handleonload = () => {
 
     if(localmovie){
         localmovie.map((a) =>{
+            
             handlemovieData(a.name , a.desc, a.opt, a.time ,a.poster, a.mid);
 
             document.getElementById("table").style .display ='block'

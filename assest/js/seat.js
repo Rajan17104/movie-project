@@ -63,7 +63,7 @@ const handlemovie = () => {
 
     mData.map((v, i) => {
 
-        print += '<option>'+"Select_movie"+'</option>'
+        // print += '<option>'+"Select_movie"+'</option>'
         print += '<option value=' + v.mid + '>' + v.name + '</option>'
     });
 

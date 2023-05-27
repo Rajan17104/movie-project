@@ -38,7 +38,7 @@ if(localdata){
 
 
 if(submitRef != ""){
-    window.location = "../index.html"
+    window.location = "../user/index.html"
 }else{
     alert("Please Enter a Details");
 }
