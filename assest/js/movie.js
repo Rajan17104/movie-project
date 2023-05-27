@@ -50,6 +50,7 @@ const handleonload = () => {
             document.getElementById("table").style .display ='block'
         })
     }
+    
 
 }
 
@@ -59,13 +60,15 @@ const handleinsert = () =>{
     let mName =document.getElementById("moviename").value;
     let mDesc =document.getElementById("moviedesc").value;
     let mOpt = document.getElementById("cinema-option").value;
-    let mTime =document.getElementById("movietime").value;
-    let mposter =document.getElementById("movieposter").value;
+    // let mTime =document.getElementById("movietime").value;
+    let mposter =document.getElementById("movieposter");
 
-console.log(mTime);
-
-    let filepath = movieposter.files[0].name;
+    let filepath = mposter.files[0].name;
     let path ='../assest/image/' + filepath;
+
+    console.log(mposter);
+
+    console.log(filepath);
   
     console.log(mOpt);
 
@@ -104,7 +107,7 @@ console.log(mTime);
         }]));
     }
 
-    handlemovieData(mName,mDesc,mOpt,arr,mposter,rno);
+    handlemovieData(mName,mDesc,mOpt,arr,path,rno);
 
     document.getElementById("table").style .display ='block';
 
@@ -203,10 +206,10 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,path,rno) => {
     img.setAttribute("src" ,path)
 
     let td5div = document.createElement("div");
-    td5div.appendChild(img);
     td5div.setAttribute("id","divtd6");
-    moviePosterE.appendChild(td5div);
-
+    td5div.appendChild(img);
+    
+  
     tr.appendChild(moviePosterE)
 
     movieNameE.appendChild(movieNameT);
@@ -221,7 +224,7 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,path,rno) => {
     movieTimeE.appendChild(movieTimeT);
     tr.appendChild(movieTimeE);
 
-    moviePosterE.appendChild(moviePosterT);
+    moviePosterE.appendChild(td5div);
     tr.appendChild(moviePosterE);
 
     button.appendChild(btn1);
@@ -236,7 +239,7 @@ const handlemovieData =(mName,mDesc,mOpt,mTime,path,rno) => {
 
     document.getElementById("table").style.display="block";
 
-    // event.preventDefault();
+    event.preventDefault();
 
 }
 
@@ -319,16 +322,18 @@ const handleupdateData = () => {
     let newtime = document.getElementsByName("movietime");
     let newposter = document.getElementById("movieposter");
 
+    let filepath = newposter.files[0].name;
+    let path ='../assest/image/' + filepath;
+
     let localmovie = JSON.parse(localStorage.getItem("movie"));
 
-    let filepath = movieposter.files[0].name;
-    let path ='../assest/image/' + filepath;
+    console.log(newposter);
+    console.log(filepath);
   
     for(let i=0; i<newtime.length; i++){
         arr.push(newtime[i].value);
    }
     let uData = localmovie.map((a) => {
-        console.log(a);
         if (a.mid === uid) {
             return {
                 mid: uid,
@@ -359,12 +364,11 @@ const handleupdateData = () => {
     tr.children[4].innerHTML = newposter
 
 
-   event.preventDefault();
+//    event.preventDefault();
 
 
 }
 
-window.onload = handleonload();
+window.onload = handleonload;
 
-// movieRef.addEventListener("submit",handleData);
 movieRef.addEventListener("submit",handledes);

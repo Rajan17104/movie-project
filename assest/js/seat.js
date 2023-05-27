@@ -24,25 +24,26 @@ const handleonload = () => {
 
     });
 
-    // let localseat = JSON.parse(localStorage.getItem("seat"));
+    let localseat = JSON.parse(localStorage.getItem("seat"));
 
-    // if (localseat) {
-    //     localseat.map((val) => {
+    if (localseat) {
+        localseat.map((val) => {
 
-    //         let localdata = JSON.parse(localStorage.getItem("cinema"));
-    //         let localmovie = JSON.parse(localStorage.getItem("movie"));
+            let localdata = JSON.parse(localStorage.getItem("cinema"));
+            let localmovie = JSON.parse(localStorage.getItem("movie"));
 
-    //         let cdata = localdata.filter((v) => v.cid === val.cid)[0].name
-    //         let mdata = localmovie.filter((v) => v.mid === val.mid)[0].name
+            let cdata = localdata.filter((v) => v.cid === val.cid)[0].name
+            let mdata = localmovie.filter((v) => v.mid === val.mid)[0].name
             
 
-    //         handleseatData(cdata, mdata, val.time, val.seat.length, val.seat); 
+            // cinemaoption, movieoption, time, seat ,rno
+            handleseatData(cdata, mdata, val.time, val.seat.length, val.sid); 
 
-    //     })
+        })
 
-    //     document.getElementById("table").style .display ='block'
+        document.getElementById("table").style .display ='block'
 
-    // };
+    };
 
 };
 
@@ -56,11 +57,13 @@ const handlemovie = () => {
     console.log(opt);
 
     let mData = localmovie.filter((v, i) => v.cid === opt);
-    console.log(mData[0].time);
+    console.log(mData);
 
-    let print;
+    let print ='';
 
     mData.map((v, i) => {
+
+        print += '<option>'+"Select_movie"+'</option>'
         print += '<option value=' + v.mid + '>' + v.name + '</option>'
     });
 
@@ -80,15 +83,21 @@ const handlemovieTime = () => {
     let mTime = localmovie.filter((v) => v.mid === parseInt(optTime));
     console.log(mTime);
 
-    let print = '';
+    if(mTime != null){
 
-    mTime.map((v, i) => {
-        for (i = 0; i < v.time.length; i++) {
-            print += '<option>' + v.time + '</option>'
-        }
-    });    
+        let print = '';
 
-    document.getElementById("timeOption").innerHTML = print;
+        mTime[0].time.map((v, i) => {
+       
+                print += '<option>' + v + '</option>';
+            
+        });    
+
+        document.getElementById("timeOption").innerHTML = print;
+
+    }
+
+  
 }
 
 
@@ -245,6 +254,7 @@ const handleupdate = (rno) => {
     //     handlemovieTime();
     // }
 
+    console.log(localseat, rno);
     
     let Fdata = localseat.filter((v, i) => v.sid === rno);
 
@@ -282,7 +292,7 @@ const handleupdateData = () => {
     let newcinemaname =parseInt(document.getElementById("cinema-option").value);
     let newmoviename= parseInt(document.getElementById("movie-option").value);
     let newtime = document.getElementById("timeOption").value;
-    let newseat = parseInt(document.getElementsByName("seat").value);
+    let newseat = document.getElementById("seat").value;
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let localmovie = JSON.parse(localStorage.getItem("movie"));
@@ -308,7 +318,7 @@ const handleupdateData = () => {
     let seatarr = [];
 
     for (let i = 0; i < seat; i++) {
-        seatarr.push(0);
+        seatarr.push(seat);
     };
 
 
@@ -321,7 +331,7 @@ const handleupdateData = () => {
                 mid: newmoviename,  
                 time:newtime,
                 seat:seatarr
-            }
+            } 
         } else {
             return a;
         }

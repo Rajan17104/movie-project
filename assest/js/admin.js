@@ -84,9 +84,10 @@ const handlecinemaData = (cName, cLocation, cFacilites, rno) => {
 
 
 const handleRemove = (rno) => {
+
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let trref = document.getElementById("row" + rno)
-    trref.remove()
+    trref.remove();
 
     localdata.map((v, i) => {
         if (v.cid === rno) {
@@ -95,7 +96,7 @@ const handleRemove = (rno) => {
         }
     })
   
-    event.preventDefault();
+    // event.preventDefault();
 }
 
 
@@ -168,7 +169,7 @@ const handleonload = () =>{
 
     if(localdata){
         localdata.map((a) =>{
-            handlecinemaData(a.name , a.location,  a.facilites ,a.id);
+            handlecinemaData(a.name , a.location,  a.facilites ,a.cid);
 
             document.getElementById("table").style .display ='inline-block'
         })
