@@ -54,9 +54,11 @@ const search = () =>{
 
 const print = () =>{
 
-    document.getElementById("print") = input;
+    document.getElementById("print") = input
 
 }
+
+
 
 
 
