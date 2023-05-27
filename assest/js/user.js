@@ -46,7 +46,7 @@ const search = () =>{
         if(!x[i].innerHTML.toLowerCase().includes(input)){
             x[i].style.display='none';
         }else{
-            x[i].style.display="list-item"
+            x[i].style.display="list-item";
         }   
     }
 
