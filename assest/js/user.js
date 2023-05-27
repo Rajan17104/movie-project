@@ -38,18 +38,17 @@ const search = () =>{
 
     let input = document.getElementById("search").value;
 
-    let localdata = JSON.parse(localStorage.getItem("cinema"));
+    input = input.toLowerCase();
 
-   let data = localdata.filter((v)=>{
-        v.name.includes(input);
+    let x =document.getElementsByClassName('name');
 
-        console.log(data);
-    });
-
-    // document.getElementById("print") = data;
-    print();
-
-    console.log('sdhdh');
+    for(i=0; i<x.length; i++){
+        if(!x[i].innerHTML.toLowerCase().includes(input)){
+            x[i].style.display='none';
+        }else{
+            x[i].style.display="list-item"
+        }   
+    }
 
 }
 
