@@ -36,10 +36,9 @@ const handleonload = () => {
             let mdata = localmovie.filter((v) => v.mid === val.mid)[0].name
             
 
-            // cinemaoption, movieoption, time, seat ,rno
             handleseatData(cdata, mdata, val.time, val.seat.length, val.sid); 
 
-        })
+        });
 
         document.getElementById("table").style .display ='block'
 
@@ -63,7 +62,7 @@ const handlemovie = () => {
 
     mData.map((v, i) => {
 
-        // print += '<option>'+"Select_movie"+'</option>'
+        print += '<option>'+"Select_movie"+'</option>'+'<br>'
         print += '<option value=' + v.mid + '>' + v.name + '</option>'
     });
 
@@ -219,9 +218,8 @@ const handleseatData = ( cinemaoption, movieoption, time, seat ,rno) => {
     tr.appendChild(seatActionE) 
     tableref.appendChild(tr);
 
-  
 
-    // document.getElementById("table").style.display="block";
+    document.getElementById("table").style.display="block";
 
     event.preventDefault();
 
@@ -269,7 +267,7 @@ const handleupdate = (rno) => {
     document.getElementById("seat").value = Fdata[0].seat.length;
 
 
-    // event.preventDefault(); 
+    event.preventDefault(); 
 
 }
 
@@ -292,7 +290,7 @@ const handleupdateData = () => {
     let newcinemaname =parseInt(document.getElementById("cinema-option").value);
     let newmoviename= parseInt(document.getElementById("movie-option").value);
     let newtime = document.getElementById("timeOption").value;
-    let newseat = document.getElementById("seat").value;
+    let newseat = parseInt(document.getElementById("seat").value);
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let localmovie = JSON.parse(localStorage.getItem("movie"));
@@ -338,7 +336,7 @@ const handleupdateData = () => {
 
     });
 
-    // localseat[uid]=uData;
+    localseat[uid]=uData;
 
     localStorage.setItem("seat", JSON.stringify(uData));
     console.log(uData);

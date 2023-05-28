@@ -12,30 +12,48 @@ const handlecinema =()=>{
         });
     cprint += '</div>'
     
-document.getElementById("cinema").innerHTML=cprint;
+    document.getElementById("cinema").innerHTML=cprint;
+
+
+
+    let localmovie = JSON.parse(localStorage.getItem("movie"));
+        
+    let mprint = '<div class = "movieData">'
+        localmovie.map((v) =>{
+            mprint += '<div class="data">'
+                mprint += '<div class="Mname">'+'name :'+v.name +'</div>'+'<br>'
+                mprint += '<div class="Mname">'+'description :'+v.desc +'</div>'+'<br>'
+                mprint += '<div class="Mname">'+'option :'+v.opt +'</div>'+'<br>'
+                mprint += '<div class="Mname">'+'time :'+v.time +'</div>'+'<br>'
+                mprint += '<div class="Mname">'+'poster :'+v.poster +'</div>'+'<br>'
+            mprint += '</div>'
+        });
+    mprint += '</div>'
+
+    document.getElementById("movie").innerHTML=mprint
+
+
+
+    let localseat = JSON.parse(localStorage.getItem("seat"));
+   
+
+    let sprint ='<div class = "seatdata">'
+        localseat.map((v) =>{   
+            sprint += '<div class="data">'
+                sprint += '<div class="Sname">'+'seat :'+v.seat.length +'</div>'+'<br>'
+            sprint += '</div>'
+        })
+
+    sprint += '</div>'
+
+    document.getElementById("seat").innerHTML=sprint
+
 
 }
 
 
-// const handlemovie = () =>{
 
-//     let localmovie = JSON.parse(localStorage.getItem("movie"));
-    
-//     let mprint = '<div class = "movieData">'
-//         localmovie.map((v) =>{
-//             mprint += '<div class="data">'
-//                 mprint += '<div class="Mname">'+'name :'+v.name +'</div>'+'<br>'
-//                 mprint += '<div class="Mname">'+'description :'+v.desc +'</div>'+'<br>'
-//                 mprint += '<div class="Mname">'+'option :'+v.opt +'</div>'
-//                 mprint += '<div class="Mname">'+'time :'+v.time +'</div>'+'<br>'
-//                 mprint += '<div class="Mname">'+'poster :'+v.poster +'</div>'+'<br>'
-//             mprint += '</div>'
-//         });
-//     mprint += '</div>'
 
-//     document.getElementById("movie").innerHTML=mprint
-
-// }
 
 
 const search = () =>{
@@ -66,6 +84,6 @@ const search = () =>{
 
 
 window.onload = handlecinema;
-window.onload = handlemovie;
+// window.onload = handlemovie;
 
 
