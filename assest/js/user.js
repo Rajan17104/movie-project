@@ -1,38 +1,42 @@
-const handleonload = () =>{
+const handlecinema =()=>{
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-     localdata.map((v)=>{
-
-        let movieRef = document.getElementById("movieName");
-
-        let movieElem = document.createElement("div");
-        let movieTax = document.createTextNode(v.name);
-        movieElem.appendChild(movieTax);
-        movieRef.appendChild(movieElem);
-
-
-        
-        let locationref = document.getElementById("location");
-
-        let locationElem = document.createElement("div");
-        let locationTax = document.createTextNode(v.location);
-        locationElem.appendChild(locationTax);
-        locationref .appendChild(locationElem);
-
-
-
-        let facilitesRef = document.getElementById("facilites");
-
-        let facilitesElem = document.createElement("div");
-        let facilitesTax = document.createTextNode(v.facilites);
-        facilitesElem.appendChild(facilitesTax);
-        facilitesRef.appendChild(facilitesElem);
-        
-
-    });
+    let cprint = '<div class = "cinemaData">'
+        localdata.map((v) =>{
+            cprint += '<div class="data">'
+                cprint += '<div class="Cname">'+'name :'+v.name +'</div>'+'<br>'
+                cprint += '<div class="Cname">'+'location :'+v.location +'</div>'+'<br>'
+                cprint += '<div class="Cname">'+'facilites :'+v.facilites +'</div>'
+            cprint += '</div>'
+        });
+    cprint += '</div>'
+    
+document.getElementById("cinema").innerHTML=cprint;
 
 }
+
+
+// const handlemovie = () =>{
+
+//     let localmovie = JSON.parse(localStorage.getItem("movie"));
+    
+//     let mprint = '<div class = "movieData">'
+//         localmovie.map((v) =>{
+//             mprint += '<div class="data">'
+//                 mprint += '<div class="Mname">'+'name :'+v.name +'</div>'+'<br>'
+//                 mprint += '<div class="Mname">'+'description :'+v.desc +'</div>'+'<br>'
+//                 mprint += '<div class="Mname">'+'option :'+v.opt +'</div>'
+//                 mprint += '<div class="Mname">'+'time :'+v.time +'</div>'+'<br>'
+//                 mprint += '<div class="Mname">'+'poster :'+v.poster +'</div>'+'<br>'
+//             mprint += '</div>'
+//         });
+//     mprint += '</div>'
+
+//     document.getElementById("movie").innerHTML=mprint
+
+// }
+
 
 const search = () =>{
 
@@ -46,21 +50,22 @@ const search = () =>{
         if(!x[i].innerHTML.toLowerCase().includes(input)){
             x[i].style.display='none';
         }else{
-            x[i].style.display="list-item";
+            x[i].style.display="";
         }   
     }
 
 }
 
-const print = () =>{
+// const print = () =>{
 
-    document.getElementById("print") = input
+//     document.getElementById("print") = input
 
-}
-
-
+// }
 
 
 
-window.onload = handleonload
+
+window.onload = handlecinema;
+window.onload = handlemovie;
+
 
