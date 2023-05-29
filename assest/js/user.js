@@ -21,11 +21,11 @@ const handlecinema =()=>{
     let mprint = '<div class = "movieData">'
         localmovie.map((v) =>{
             mprint += '<div class="data">'
+                mprint += '<img src="'+ v.poster +'"'+'style="width:230px;height:270px"'+'>'+'</img>'
                 mprint += '<div class="Mname">'+'name :'+v.name +'</div>'+'<br>'
                 mprint += '<div class="Mname">'+'description :'+v.desc +'</div>'+'<br>'
                 mprint += '<div class="Mname">'+'option :'+v.opt +'</div>'+'<br>'
                 mprint += '<div class="Mname">'+'time :'+v.time +'</div>'+'<br>'
-                mprint += '<div class="Mname">'+'poster :'+v.poster +'</div>'+'<br>'
             mprint += '</div>'
         });
     mprint += '</div>'
@@ -43,7 +43,6 @@ const handlecinema =()=>{
                 sprint += '<div class="Sname">'+'seat :'+v.seat.length +'</div>'+'<br>'
             sprint += '</div>'
         })
-
     sprint += '</div>'
 
     document.getElementById("seat").innerHTML=sprint
@@ -52,17 +51,13 @@ const handlecinema =()=>{
 }
 
 
+const searchcinema = () =>{
 
-
-
-
-const search = () =>{
-
-    let input = document.getElementById("search").value;
+    let input = document.getElementById("searchcinema").value;
 
     input = input.toLowerCase();
 
-    let x =document.getElementsByClassName('name');
+    let x =document.getElementsByClassName('Cname');
 
     for(i=0; i<x.length; i++){
         if(!x[i].innerHTML.toLowerCase().includes(input)){
@@ -74,16 +69,27 @@ const search = () =>{
 
 }
 
-// const print = () =>{
 
-//     document.getElementById("print") = input
+const searchmovie =() =>{
 
-// }
+    let input = document.getElementById("searchmovie").value;
 
+    input = input.toLowerCase();
 
+    let x =document.getElementsByClassName('Mname');
+
+    for(i=0; i<x.length; i++){
+        if(!x[i].innerHTML.toLowerCase().includes(input)){
+            x[i].style.display='none';
+        }else{
+            x[i].style.display="";
+        }   
+    }
+
+}
 
 
 window.onload = handlecinema;
-// window.onload = handlemovie;
+
 
 
