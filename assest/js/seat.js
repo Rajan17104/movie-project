@@ -88,7 +88,7 @@ const handlemovieTime = () => {
 
         mTime[0].time.map((v, i) => {
        
-                print += '<option>' + v + '</option>';
+            print += '<option>' + v + '</option>';
             
         });    
 
@@ -108,7 +108,6 @@ const handleinsert = () => {
     let movie = parseInt(document.getElementById("movie-option").value);
     let time = document.getElementById("timeOption").value;
     let seat = document.getElementById("seat").value;
-
 
     // document.getElementById("cinema-option").value ='';
     // document.getElementById("movie-option").value ='';
@@ -294,7 +293,6 @@ const handleupdateData = () => {
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let localmovie = JSON.parse(localStorage.getItem("movie"));
-    let localseat = JSON.parse(localStorage.getItem("seat"));
 
     let cinemaName;
     let MovieName;
@@ -313,10 +311,12 @@ const handleupdateData = () => {
         };
     });
 
+    let localseat = JSON.parse(localStorage.getItem("seat"));
+
     let seatarr = [];
 
     for (let i = 0; i < seat; i++) {
-        seatarr.push(seat);
+        seatarr.push(0);
     };
 
 

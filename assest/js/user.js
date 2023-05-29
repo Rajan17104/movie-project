@@ -36,7 +36,6 @@ const handlecinema =()=>{
 
     let localseat = JSON.parse(localStorage.getItem("seat"));
    
-
     let sprint ='<div class = "seatdata">'
         localseat.map((v) =>{   
             sprint += '<div class="data">'
@@ -49,6 +48,22 @@ const handlecinema =()=>{
 
 
 }
+
+
+
+
+let sessiondata = JSON.parse(sessionStorage.getItem("moviedata"));
+
+sessionStorage.setItem("moviedata",JSON.stringify(sessiondata));
+
+
+// const newcinemadata =(moviedata)=>{
+
+//     sessionStorage.setItem("movedata",JSON.stringify(moviedata));
+
+// }
+
+
 
 
 const searchcinema = () =>{

@@ -299,6 +299,7 @@ const handleupdate = (rno) => {
     // document.getElementById("movieposter") = Fdata[0].poster
  
     event.preventDefault();
+    
 }
 
 
