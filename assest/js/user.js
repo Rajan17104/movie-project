@@ -1,5 +1,6 @@
 const handlecinema =()=>{
 
+
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
     let cprint = '<div class = "cinemaData">'
@@ -24,8 +25,8 @@ const handlecinema =()=>{
                 mprint += '<img src="'+ v.poster +'"'+'style="width:230px;height:270px"'+'>'+'</img>'
                 mprint += '<div class="Mname">'+'name :'+v.name +'</div>'+'<br>'
                 mprint += '<div class="Mname">'+'description :'+v.desc +'</div>'+'<br>'
-                mprint += '<div class="Mname">'+'option :'+v.opt +'</div>'+'<br>'
                 mprint += '<div class="Mname">'+'time :'+v.time +'</div>'+'<br>'
+                mprint+='<a href="../user/movieDetails.html" onclick="handleMovieDetails('+v.mid+')">'+"book"+'</a>'
             mprint += '</div>'
         });
     mprint += '</div>'
@@ -50,18 +51,14 @@ const handlecinema =()=>{
 }
 
 
+const handleMovieDetails =(sessiondata) =>{
+
+    sessionStorage.setItem("moviedata",JSON.stringify(sessiondata));
+    
+
+}
 
 
-let sessiondata = JSON.parse(sessionStorage.getItem("moviedata"));
-
-sessionStorage.setItem("moviedata",JSON.stringify(sessiondata));
-
-
-// const newcinemadata =(moviedata)=>{
-
-//     sessionStorage.setItem("movedata",JSON.stringify(moviedata));
-
-// }
 
 
 
