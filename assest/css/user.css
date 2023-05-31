@@ -2,13 +2,22 @@
     border: 2px solid #fff;
     border-radius: 10px;
     width: 230px;
-    font-size: 21px;
+    font-size: 20px;
     display: inline-block;
     padding: 20px;
     margin: 50px;
     color: #fff;
     font-weight: bold;
+
     /* box-shadow: 2px 2px 2px 2px ; */
+}
+
+.data:hover{
+    color: red;
+   padding: 25px;
+   /* transform: rotate(360deg);*/
+   transition: 0.5s; 
+
 }
 
 #searchcinema ,#searchmovie{
@@ -32,7 +41,7 @@ h1{
 }
 
 body{
-    background-color: #354152;;
+    background-color: #354152;
 }
 
 
