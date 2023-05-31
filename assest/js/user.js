@@ -5,11 +5,14 @@ const handlecinema =()=>{
 
     let cprint = '<div class = "cinemaData">'
         localdata.map((v) =>{
-            cprint += '<div class="data">'
+            // cprint += '<div class="data">'
+            cprint+='<a href="../user/cinemaDetails.html" class ="data" onclick="handleCinemaDetails('+v.cid+')">'
                 cprint += '<div class="Cname">'+'name :'+v.name +'</div>'+'<br>'
                 cprint += '<div class="Cname">'+'location :'+v.location +'</div>'+'<br>'
                 cprint += '<div class="Cname">'+'facilites :'+v.facilites +'</div>'
-            cprint += '</div>'
+                // cprint += '</div>'
+            cprint += '</a>'
+
         });
     cprint += '</div>'
     
@@ -21,13 +24,14 @@ const handlecinema =()=>{
         
     let mprint = '<div class = "movieData">'
         localmovie.map((v) =>{
-            mprint += '<div class="data">'
+            // mprint += '<div class="data">'
+            mprint+='<a href="../user/movieDetails.html" class ="data" onclick="handleMovieDetails('+v.mid+')">'
                 mprint += '<img src="'+ v.poster +'"'+'style="width:230px;height:270px"'+'>'+'</img>'
                 mprint += '<div class="Mname">'+'name :'+v.name +'</div>'+'<br>'
                 mprint += '<div class="Mname">'+'description :'+v.desc +'</div>'+'<br>'
                 mprint += '<div class="Mname">'+'time :'+v.time +'</div>'+'<br>'
-                mprint+='<a href="../user/movieDetails.html" onclick="handleMovieDetails('+v.mid+')">'+"book"+'</a>'
-            mprint += '</div>'
+            mprint+='</a>'
+            // mprint += '</div>'
         });
     mprint += '</div>'
 
@@ -51,16 +55,20 @@ const handlecinema =()=>{
 }
 
 
-const handleMovieDetails =(sessiondata) =>{
+const handleMovieDetails =(moviedata) =>{
 
-    sessionStorage.setItem("moviedata",JSON.stringify(sessiondata));
+    sessionStorage.setItem("moviedata",JSON.stringify(moviedata));
     
 
 }
 
 
+const handleCinemaDetails =(Cinemadata) =>{
 
+    sessionStorage.setItem("cinemadata",JSON.stringify(Cinemadata));
+    
 
+}
 
 
 const searchcinema = () =>{

@@ -1,0 +1,55 @@
+#movieData{
+
+    border: 3px solid #FFf;
+    width: 300px;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(232, 158, 9);
+    color: #fff;
+    padding-top:10px ;
+    margin: 5rem 0 0 5rem;
+}
+
+body{
+    background-color: #354152;
+}
+
+h1{
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 40px;
+}
+
+#cinemaData{
+    border: 3px solid #FFf;
+    width: 300px;
+    text-align: center;
+    font-size: 25px;
+    background-color: rgb(232, 158, 9);
+    color: #fff;
+    padding:10px ;
+    margin: 5rem 0 0 5rem;
+    border-radius: 10px;
+}
+
+.btn {
+
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+
+.data{
+    padding: 10px;
+}
+
+a{
+    color: #fff;
+
+}
