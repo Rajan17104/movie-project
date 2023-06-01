@@ -9,3 +9,12 @@ h1{
     margin: 0 auto;
     text-align: center;
 }
+
+h2{
+    color: #fff;
+}
+
+#cinema ,#movie{
+    color: #fff;
+    font-size: 20px;
+}

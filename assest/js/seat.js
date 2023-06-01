@@ -348,7 +348,7 @@ const handleupdateData = () => {
     tr.children[2].innerHTML =  newtime;
     tr.children[3].innerHTML = newseat;
 
-   event.preventDefault();
+//    event.preventDefault();
 
 
 }
