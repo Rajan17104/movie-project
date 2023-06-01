@@ -21,7 +21,7 @@ const bookonload = () => {
         mprint += '<div class="Cname">' + 'Movie name :' + v.name + '</div>' + '<br>'
            
         mprint += '</div>'
-        document.getElementById("movie").innerHTML=mprint
+        document.getElementById("movie").innerHTML = mprint;
 
 
         let carr = [];
@@ -53,19 +53,19 @@ const bookonload = () => {
                             cprint += '<div class="Cname">' + 'location :' + v.location + '</div>' + '<br>'
                             cprint += '<div class="Cname">' + 'facilites :' + v.facilites + '</div>'
                             // cprint += '</div>'
-                            cprint += '</a>'
+                            // cprint += '</a>'
 
                         });
+
                     cprint += '</div>'
+                    // document.getElementById("cinema").innerHTML = Cdara
                     document.getElementById("cinema").innerHTML = cprint;
 
-                }
-            })
+                };                      
+            });
         });
 
-
-
-    })
+    });
 
     // document.getElementById("bookDisplay").innerHTML= marr[0].Mdata;
     event.preventDefault();

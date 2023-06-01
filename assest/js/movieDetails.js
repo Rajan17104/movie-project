@@ -11,11 +11,9 @@ const handleOnload = () => {
             mprint += '<div class="name">'+'name :'+v.name +'</div>'+'<br>'
             mprint += '<div class="name">'+'time :'+v.time +'</div>'+'<br>'
             mprint += '<div class="name">'+'description :'+v.desc +'</div>'+'<br>'
-            mprint += `<div class="btn"><a href=../user/book.html onclick="handlebook('${v.name}')">Book Now</a>`;
+            mprint += `<div class="btn"><a href=../user/book.html onclick="handlebook('${v.name}')">Book Now</a></div>`;
         });
-    mprint += '</div>';
-
-    // mprint += '<button id="btn" onclick="handlebook('${v.name}')">'+'Book Now'+'</button>'   
+    mprint += '</div>';  
 
     console.log('jgj');
 
