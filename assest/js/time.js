@@ -14,12 +14,16 @@ const timeonload = () => {
 
     Tdata.map((v) =>{
 
-        let tprint = '<div class = "data">'
-            tprint += '<a href="../user/seatBook.html" class ="data" onclick="handleseat()">'
-            tprint += '<div class="name">' + 'Time :'+'</div>' + '<br>'
-                tprint += '<div class="Cname">' + v.time + '</div>' + '<br>'
-            tprint += '</a>'
-        tprint += '</div>'
+        tprint = '<div class="sdata">';
+         Tdata.map((v)=>{
+            for (let i = 0; i < v.time.length; i++) {
+                tprint += '<div class = "data">'
+                    tprint += '<div class="name">' + 'Time :'+'</div>'+'<b';
+                    tprint += `<div class="data"><a href="../user/seatBook.html" class="btn btn-primary" onclick="handleseat('${v.time[i]}')" />${v.time[i]}</a>`;
+                tprint += '</div>';
+            }
+        });
+        tprint += '</div>';
 
         document.getElementById("time").innerHTML=tprint;
 

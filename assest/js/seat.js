@@ -36,7 +36,10 @@ const handleonload = () => {
             let mdata = localmovie.filter((v) => v.mid === val.mid)[0].name
             
 
-            handleseatData(cdata, mdata, val.time, val.seat.length, val.sid); 
+            console.log(cdata);
+            console.log(mdata);
+
+            handleseatData(cdata, mdata, val.time, val.seat.length, val.price, val.sid); 
 
         });
 
@@ -64,6 +67,7 @@ const handlemovie = () => {
 
         print += '<option>'+"Select_movie"+'</option>'+'<br>'
         print += '<option value=' + v.mid + '>' + v.name + '</option>'
+
     });
 
     document.getElementById("movie-option").innerHTML = print;
@@ -108,6 +112,7 @@ const handleinsert = () => {
     let movie = parseInt(document.getElementById("movie-option").value);
     let time = document.getElementById("timeOption").value;
     let seat = document.getElementById("seat").value;
+    let price =parseInt(document.getElementById("price").value);
 
     // document.getElementById("cinema-option").value ='';
     // document.getElementById("movie-option").value ='';
@@ -152,7 +157,8 @@ const handleinsert = () => {
             mid: movie,
             sid: rno,
             time: time,
-            seat: seatarr
+            seat: seatarr,
+            price:price
         });
         localStorage.setItem("seat", JSON.stringify(localseat));
     } else {
@@ -161,17 +167,18 @@ const handleinsert = () => {
             mid: movie,
             sid: rno,
             time: time,
-            seat: seatarr
+            seat: seatarr,
+            price:price
         }]));
     }
 
-    handleseatData( cinemaName, MovieName, time, seat ,rno);
+    handleseatData(cinemaName, MovieName, time, seat ,price ,rno);
 
     event.preventDefault();
 }
 
 
-const handleseatData = ( cinemaoption, movieoption, time, seat ,rno) => {
+const handleseatData = ( cinemaoption, movieoption, time, seat , price,rno) => {
 
 
     let tableref = document.getElementById("Tabledata");
@@ -198,6 +205,11 @@ const handleseatData = ( cinemaoption, movieoption, time, seat ,rno) => {
     let seatT = document.createTextNode(seat)
     seatE.appendChild(seatT);
     tr.appendChild(seatE);
+
+    let priceE = document.createElement("td");
+    let priceT = document.createTextNode(price)
+    priceE.appendChild(priceT);
+    tr.appendChild(priceE);
 
     let seatActionE = document.createElement("td");
 
@@ -264,7 +276,7 @@ const handleupdate = (rno) => {
     handlemovieTime();
     document.getElementById("timeOption").value = Fdata[0].time
     document.getElementById("seat").value = Fdata[0].seat.length;
-
+    document.getElementById("price").value = Fdata[0].price;
 
     event.preventDefault(); 
 
@@ -290,6 +302,7 @@ const handleupdateData = () => {
     let newmoviename= parseInt(document.getElementById("movie-option").value);
     let newtime = document.getElementById("timeOption").value;
     let newseat = parseInt(document.getElementById("seat").value);
+    let newprice =  parseInt(document.getElementById("price").value);
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let localmovie = JSON.parse(localStorage.getItem("movie"));
@@ -328,7 +341,8 @@ const handleupdateData = () => {
                 cid:newcinemaname,
                 mid: newmoviename,  
                 time:newtime,
-                seat:seatarr
+                seat:seatarr,
+                price:newprice
             } 
         } else {
             return a;
@@ -347,6 +361,8 @@ const handleupdateData = () => {
     tr.children[1].innerHTML = MovieName;
     tr.children[2].innerHTML =  newtime;
     tr.children[3].innerHTML = newseat;
+    tr.children[4].innerHTML = newprice;
+
 
 //    event.preventDefault();
 

@@ -1,0 +1,11 @@
+#seat{
+    font-size: 20px;
+
+}
+
+a{
+    /* display: block; */
+    display: inline-block;
+    padding: 20px;
+    /* display: flex; */
+}
