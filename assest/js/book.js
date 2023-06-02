@@ -89,7 +89,7 @@ const bookonload =() =>{
         arr.push(v.cid);
         console.log(arr);
 
-        let mprint = '<div class = "cinemaData">'
+        let mprint = '<div class = "data">'
 
             mprint += '<div class="Cname">' + 'Movie name :' + v.name + '</div>' + '<br>'
                    
@@ -98,18 +98,19 @@ const bookonload =() =>{
 
         let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-        let cprint = '<div class = "cinemaData">'
+        let cprint = '<div class = "adata">'
 
         localdata.map((v) =>{
             for(let i=0; i<arr.length; i++){
 
                 if(v.cid === parseInt(arr[i])){
-                    cprint += '<div class="Cname">' + 'name :' + v.name + '</div>' + '<br>'
-                    cprint += '<div class="Cname">' + 'location :' + v.location + '</div>' + '<br>'
-                    cprint += '<div class="Cname">' + 'facilites :' + v.facilites + '</div>'+'<br>'
-                    cprint += '<div class="Cname">' + '</div>'+'<br>'
+                    cprint += '<a href="../user/time.html" class ="data" onclick="handletime()">'
+                        cprint += '<div class="Cname">' + 'name :' + v.name + '</div>' + '<br>'
+                        cprint += '<div class="Cname">' + 'location :' + v.location + '</div>' + '<br>'
+                        cprint += '<div class="Cname">' + 'facilites :' + v.facilites + '</div>'+'<br>'
+                        cprint += '<div class="Cname">' + '</div>'+'<br>'
+                    cprint += '</a>'
                 }
-
             }   
         })
 
@@ -118,6 +119,13 @@ const bookonload =() =>{
         document.getElementById("cinema").innerHTML=cprint
 
     });
+
+}
+
+const handletime =(moviedata) =>{
+
+    sessionStorage.setItem("time",JSON.stringify(moviedata));
+    
 
 }
 

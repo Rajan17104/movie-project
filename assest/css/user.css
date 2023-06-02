@@ -43,4 +43,6 @@ body{
     background-color: #354152;
 }
 
-
+a{
+    text-decoration: none;
+}
