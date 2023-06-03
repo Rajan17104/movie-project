@@ -76,6 +76,7 @@ const handleinsert = () =>{
     let rno = Math.floor(Math.random() * 10000);
     
     let time = document.getElementsByName("movietime");
+    
 
     for(let i=0; i<time.length; i++){
         arr.push(time[i].value);

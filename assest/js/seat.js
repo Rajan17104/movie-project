@@ -114,11 +114,6 @@ const handleinsert = () => {
     let seat = document.getElementById("seat").value;
     let price =parseInt(document.getElementById("price").value);
 
-    // document.getElementById("cinema-option").value ='';
-    // document.getElementById("movie-option").value ='';
-    // document.getElementById("timeOption").value ='';
-    // document.getElementById("seat").value ='';
-
     let rno = Math.floor(Math.random() * 10000);
 
     let localdata = JSON.parse(localStorage.getItem("cinema"));
@@ -143,6 +138,7 @@ const handleinsert = () => {
             MovieName = v.name;
         };
     });
+
     console.log(MovieName);
         
     let seatarr = [];
@@ -258,11 +254,6 @@ const handleupdate = (rno) => {
 
     let localseat = JSON.parse(localStorage.getItem("seat"));
 
-    // if (update) {
-    //     handlemovie();
-    //     handlemovieTime();
-    // }
-
     console.log(localseat, rno);
     
     let Fdata = localseat.filter((v, i) => v.sid === rno);
@@ -328,7 +319,7 @@ const handleupdateData = () => {
 
     let seatarr = [];
 
-    for (let i = 0; i < seat; i++) {
+    for (let i = 0; i < newseat; i++) {
         seatarr.push(0);
     };
 

@@ -1,6 +1,9 @@
+let seat =[];
+
+
 const seatonload = () => {
 
-    let moviename = JSON.parse(sessionStorage.getItem("moviename"));
+    // let moviename = JSON.parse(sessionStorage.getItem("moviename"));
     let cinemaid = JSON.parse(sessionStorage.getItem("time"));
     let seatdata = JSON.parse(sessionStorage.getItem("seatdata"));
     let localseat = JSON.parse(localStorage.getItem("seat"));
@@ -19,34 +22,99 @@ const seatonload = () => {
         Sdata.map((v)=>{
      
             for (let i = 0; i < v.seat.length; i++) {
-                sprint += '<button class="btn btn-primary" id="seatbtn" onclick="Bookseat(' + v.sid + ')">' + v.seat[i] + '</button>';
+                sprint += '<button class="btn" id="btn-'+i+'" onclick="Bookseat(' + v.price + ','+i+')">' + [i+1] + '</button>';
             };
         
         })
+
+        
      
     sprint += '</div>'
     document.getElementById("seat").innerHTML = sprint;
+
+    Sdata.map((v)=>{
+     
+        for (let i = 0; i < v.seat.length; i++) {
+            if( v.seat[i] == 1){
+                document.getElementById("btn-"+i).disabled=true;
+                document.getElementById("btn-"+i).style.backgroundColor="green";
+            }
+        };
+    
+    })
 
   
 }
 
 
-const Bookseat = (sid,i) =>{
+const Bookseat = (price,i) =>{
 
-    // document.getElementById('seat'+ i).innerHTML = 1; 
+    seat.push(i);
+    
+    console.log(seat);
 
-    let localseat = JSON.parse(localStorage.getItem("seat"));
+    console.log(price , i);
 
-    seatData = localseat.filter((v) => sid === v.sid);
+    document.getElementById("price").innerHTML= "Pay :"+  price * seat.length;
 
-    console.log(seatData);
+    document.getElementById("btn-"+i).disabled=true;
 
-    seatData.map((v) => v.seat[i]= 1)    
+    document.getElementById("btn-"+i).style.backgroundColor="green";
+
+
 
 }
 
+const pay = () =>{
+
+    let moviedata = JSON.parse(sessionStorage.getItem("moviedata"));
+    let movieName = JSON.parse(sessionStorage.getItem("moviename"));
+    let cinemaid = JSON.parse(sessionStorage.getItem("time"));
+    let seatdata = JSON.parse(sessionStorage.getItem("seatdata"));
+    let localseat = JSON.parse(localStorage.getItem("seat"));
+
+        
+    let Sdata = localseat.filter((v) => v.cid === cinemaid && v.time == seatdata);
+
+    if(Sdata !=null){
+        Sdata[0].seat.map((v,i) =>{
+            seat.map((s) =>{
+                if(i === s){
+                    Sdata[0].seat[i] = 1; 
+                }
+            })        
+        })
+        console.log(Sdata);
+
+    }
 
 
+    let uData = localseat.map((a) => {
+        console.log(a);
+        if (a.sid === localseat.sid) {
+            return {
+                sid:seatdata,
+                cid:moviedata,
+                mid: movieName,  
+                time:cinemaid,
+                seat:localseat,
+            } 
+            
+            
+        } else {
+            return a;
+        }
 
+    });
+
+    localseat[localseat.sid]=uData;
+
+    localStorage.setItem("seat", JSON.stringify(uData));
+    console.log(uData);
+    event.preventDefault();
+
+    window.location="../user/successful.html"
+
+}
 
 window.onload =seatonload;
