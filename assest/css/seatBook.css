@@ -1,6 +1,15 @@
 #seat{
     font-size: 20px;
     margin-bottom: 200px;
+
+}
+
+#display{
+    width: 700px;
+    height: 70px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 50px;
 }
 
 a{
@@ -10,6 +19,12 @@ a{
     /* display: flex; */
 }
 
+h2{
+    color: #fff;
+    margin-top: 50px;
+    font-size: 50px;
+    text-align: center;
+}
 
 
 body{

@@ -37,7 +37,7 @@ const seatonload = () => {
         for (let i = 0; i < v.seat.length; i++) {
             if( v.seat[i] == 1){
                 document.getElementById("btn-"+i).disabled=true;
-                document.getElementById("btn-"+i).style.backgroundColor="green";
+                document.getElementById("btn-"+i).style.backgroundColor="red";
             }
         };
     

@@ -138,11 +138,51 @@
     color: #fff;
   }
 
+#movie-option{
+  border: 1px solid #242c37;
+  border-radius: 999px;
+  background-color: transparent;
+  text-align: center;
+  color: #fff;
+  padding: 0.5rem 2.5rem;
+}
+
+#timeOption{
+  border: 1px solid #242c37;
+  border-radius: 999px;
+  background-color: transparent;
+  text-align: center;
+  color: #fff;
+  padding: 0.5rem 2.5rem;
+}
+
  .poster{
     width: 200px;
     height: 100px;
   }
 
   #table{
-    padding-top:px ;
+    background-color: #000;
+    font-size: 20px;
+  }
+
+  #table tr th{
+      padding:20px 30px;
+      font-size: 20px;
+  }
+
+  
+  #Tabledata td{
+    padding: 10px;
+  }
+
+  button {
+    width: 100px;
+    padding: 5px;
+    height: 30px;
+    font-size: 18px;
+    /* background-color: gray;   */
+    background-color: #6582a9;
+    color: #fff;
+
   }

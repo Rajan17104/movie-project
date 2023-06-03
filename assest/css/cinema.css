@@ -148,3 +148,29 @@
     width: 150px;
     height: 200px;
     }
+
+    #table{
+      background-color: #000;
+      font-size: 20px;
+    }
+  
+    #table tr th{
+        padding:20px 30px;
+        font-size: 20px;
+    }
+  
+    
+    #Tabledata td{
+      padding: 10px;
+    }
+  
+    button {
+      width: 100px;
+      padding: 5px;
+      height: 30px;
+      font-size: 18px;
+      background-color: #6582a9;
+      color: #fff;
+  
+    }
+  

@@ -75,10 +75,17 @@
     vertical-align: middle;
   }
   
-  a {
+  button{
     color:#fff;
+    /* color: #7e8ba3; */
     font-size: 20px;
+    width: 280px;
+    height: 50px;
     text-align: start;
+    background-color:#354152 ;
+    text-decoration: none;
+    text-align: center;
+    
   }
   
   .register {
