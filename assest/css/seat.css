@@ -52,7 +52,7 @@
     color: #fff;
   }
     #login-form input[type=email], #login-form input[type=password] {
-    width: 100%;
+    width: 80%;
   }
   
   .grid {
@@ -76,25 +76,28 @@
   }
   
   a {
-    color:#fff;
+    color:#8ceabb;
     font-size: 20px;
     text-align: start;
   }
   
   .register {
-    box-shadow: 0 0 250px #000;
+    box-shadow: 0 0 100px darkturquoise;
     text-align: center;
     padding: 4rem 1rem;
+    /* width: 300px; */
   }
 
 
 
   .register input {
-    border: 1px solid #242c37;
+    border: 1px solid #fff;
     border-radius: 999px;
     background-color: transparent;
     text-align: center;
     color: #fff;
+    width: 250px;
+    font-size: 20px;
   }
 
   .register input[type=email], .register input[type=password] {
@@ -126,12 +129,15 @@
   /***movie***/
 
   #cinema-option{
-    border: 1px solid #242c37;
+    border: 1px solid #fff;
     border-radius: 999px;
     background-color: transparent;
     text-align: center;
     color: #fff;
     padding: 0.5rem 2.5rem;
+    width: 300px;
+    font-size: 18px;
+
   }
   option{
     background-color: #000;
@@ -139,21 +145,29 @@
   }
 
 #movie-option{
-  border: 1px solid #242c37;
+  border: 1px solid #fff;
   border-radius: 999px;
   background-color: transparent;
   text-align: center;
   color: #fff;
   padding: 0.5rem 2.5rem;
+  width: 300px;
+  font-size: 18px;
+
+
 }
 
 #timeOption{
-  border: 1px solid #242c37;
+  border: 1px solid #fff;
   border-radius: 999px;
   background-color: transparent;
   text-align: center;
   color: #fff;
   padding: 0.5rem 2.5rem;
+  width: 300px;
+  font-size: 18px;
+
+
 }
 
  .poster{
@@ -164,6 +178,8 @@
   #table{
     background-color: #000;
     font-size: 20px;
+    box-shadow: 0 0 50px darkturquoise;
+    margin-left: 100px;
   }
 
   #table tr th{
@@ -186,3 +202,8 @@
     color: #fff;
 
   }
+
+
+#submitdata{
+  margin-top: 50px;
+}

@@ -35,15 +35,16 @@ body {
 input {
   border: 0;
   font: inherit;
+  
 }
 
 input::placeholder {
-  /* color: #7e8ba3; */
   color: #fff;
 }
 
 .form__field {
   margin-bottom: 1rem;
+  
 }
 
 #register-form input {
@@ -53,7 +54,8 @@ input::placeholder {
   color: #fff;
 }
   #register-form input[type=email], #login-form input[type=password] {
-  width: 100%;
+  width: 80%;
+  margin-top: 20px;
 }
 
 .grid {
@@ -76,17 +78,18 @@ svg {
 }
 
 a {
-  color: #7e8ba3;
+  color: #8ceabb;
 }
 
 .register {
-  box-shadow: 0 0 250px #000;
+  box-shadow: 0 0 100px darkturquoise;
   text-align: center;
   padding: 2rem 1rem;
+  width: 500px;
 }
 
 .register input {
-  border: 1px solid #242c37;
+  border: 1px solid #FFF;
   border-radius: 999px;
   background-color: transparent;
   text-align: center;
@@ -111,4 +114,13 @@ a {
   color: #fff;
   margin-bottom: 6rem;
   width: 100%;
+}
+
+img{
+  width: 90px;
+  height: 70px;
+}
+
+p{
+  color: #fff;
 }
