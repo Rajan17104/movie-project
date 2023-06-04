@@ -19,7 +19,7 @@ const timeonload = () => {
             for (let i = 0; i < v.time.length; i++) {
                 tprint += '<div class = "data">'
                     tprint += '<div class="name">' + 'Time :'+'</div>'+'<b';
-                    tprint += `<div class="data"><a href="../user/seatBook.html" class="btn btn-primary" onclick="handleseat('${v.time[i]}')" />${v.time[i]}</a>`;
+                    tprint += `<div class="data"><a href="../user/seatBook.html" class="btn" onclick="handleseat('${v.time[i]}')" />${v.time[i]}</a>`;
                 tprint += '</div>';
             }
         });

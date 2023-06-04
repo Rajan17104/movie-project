@@ -55,13 +55,13 @@ const Bookseat = (price,i) =>{
 
     console.log(price , i);
 
-    document.getElementById("price").innerHTML= "Pay :"+  price * seat.length;
+    document.getElementById("price").innerHTML= "Price :"+  price * seat.length;
 
     document.getElementById("btn-"+i).disabled=true;
 
     document.getElementById("btn-"+i).style.backgroundColor="green";
 
-
+    document.getElementById("price").style.display="block"
 
 }
 

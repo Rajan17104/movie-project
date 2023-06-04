@@ -1,13 +1,14 @@
 #movieData{
 
-    border: 3px solid #FFf;
+    /* border: 3px solid #FFf; */
     width: 300px;
     text-align: center;
     font-size: 20px;
     background-color: rgb(232, 158, 9);
     color: #fff;
-    padding-top:10px ;
+    /* padding-top:10px ; */
     margin: 5rem 0 0 5rem;
+    border-radius: 20px;
 }
 
 body{
@@ -46,7 +47,9 @@ h1{
 }
 
 .data{
-    padding: 10px;
+    box-shadow: 0 0 100px darkturquoise;
+    border-radius: 20px;
+
 }
 
 a{

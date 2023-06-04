@@ -1,7 +1,11 @@
 #seat{
     font-size: 20px;
     margin-bottom: 200px;
+    
+}
 
+.btn{
+    box-shadow: 0 0 50px #34c2f1 ;
 }
 
 #display{
@@ -42,9 +46,12 @@ h1{
     color: #fff;
     border: 2px solid #fff;
     width: 100px;
-    margin-top: 200px ;
+    margin-top: 100px ;
     text-align: center;
     margin: 0 auto;
+    display: none;
+    width: 120px;
+    border-radius: 2px;
 }
 
 #price:hover{
@@ -57,13 +64,22 @@ h1{
     margin: 40px 20px 0 20px;
     font-size: 20px;
     width: 40px;
+   
 }
 
 #pay{
-    margin-left: 783px;
-    margin-top: 30px;
+    margin-left: 653px;
+    margin-top: 20px;
     width: 100px;
     height: 20px;
-    text-align: center;
+    width: 200px;
+    border-radius:  10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+ 
+}
 
+button{
+    /* padding: 5px; */
+    box-shadow: 0 0 200px rgb(0, 164, 209);;
 }

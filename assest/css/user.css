@@ -1,5 +1,5 @@
 .data{
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
     border-radius: 10px;
     width: 230px;
     font-size: 20px;
@@ -12,7 +12,7 @@
 }
 
 .data:hover{
-   color: red;
+   color: rgb(149, 212, 230);
    padding: 25px;
    /* transform: rotate(360deg); */
    transition: 0.5s; 
@@ -26,9 +26,8 @@
     border-radius: 10px;
     box-shadow: 4px 2px 1px 1px;
     margin-top: 30px;
-   
+    margin-bottom: 40px;
 }
-
 
 
 i{
@@ -37,10 +36,17 @@ i{
 }
 
 h1{
+    font-size: 30px;
+    color: #fff;
+    box-shadow: 0 0 20px #fff;
+}
+
+h2{
     margin: 0 auto;
     text-align: center;
     margin-top: 20px;
     color: #fff;
+    font-size: 40px;
 }
 
 body{
@@ -49,4 +55,14 @@ body{
 
 a{
     text-decoration: none;
+}
+
+
+.movieData ,.cinemaData{
+    box-shadow: 0 0 20px rgb(0, 164, 209);       
+
+}
+
+.data{
+    box-shadow: 0 0 20px rgb(212, 40, 40);  
 }

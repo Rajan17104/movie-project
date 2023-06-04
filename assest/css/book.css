@@ -29,5 +29,11 @@ h2{
     margin: 50px;
     color: #fff;
     font-weight: bold;
+    box-shadow: 0 0 20px rgb(0, 164, 209);
+    text-decoration: none;
     /* box-shadow: 2px 2px 2px 2px ; */
+}
+
+h2{
+    margin-left: 50px;
 }
