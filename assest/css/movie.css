@@ -43,12 +43,13 @@
   }
   
   .form__field {
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
   }
 
-  #login-form input {
+  #movieForm input {
     outline: 0;
-    padding: 0.5rem 1rem;
+    width: 370px;
+    padding: 0.5rem 4rem;
     color: #fff;
   }
     #login-form input[type=email], #login-form input[type=password] {
@@ -75,26 +76,18 @@
     vertical-align: middle;
   }
   
-  button{
+  a {
     color:#fff;
-    /* color: #7e8ba3; */
     font-size: 20px;
-    width: 280px;
-    height: 50px;
     text-align: start;
-    background-color:#354152 ;
-    text-decoration: none;
-    text-align: center;
-    
   }
   
   .register {
-    box-shadow: 0 0 100px darkturquoise;
+    box-shadow: 0 0 250px darkturquoise;
     text-align: center;
     padding: 4rem 1rem;
-    /* width: 500px; */
-    height: 600px;
-    border-radius: 25px;
+    border-radius: 20px;
+    
   }
 
 
@@ -104,6 +97,9 @@
     border-radius: 999px;
     background-color: transparent;
     text-align: center;
+    margin-top: 10px;
+    color: #fff;
+    width: 300px;
   }
 
   .register input[type=email], .register input[type=password] {
@@ -123,26 +119,82 @@
   .register input[type=submit] {
     background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
     color: #fff;
-    margin-bottom: 6rem;
-    width: 100%;
+    margin-bottom: 3rem;
+    margin-top: 30px;
+    width: 80%;
   }
 
   #table{
     display: none;
-    text-decoration: none;
+    color: #fff;
   }
 
-  button {
-    padding: 5px;
-    font-size: 18px;
+  /***movie***/
+
+  #cinema-option{
+    border: 1px solid#fff;
+    border-radius: 999px;
+    background-color: transparent;
+    text-align: center;
     color: #fff;
-    box-shadow: 0 0 20px #8ceabb;
-    border: 1px solid #378f7b;
-    margin-top: 30px;
+    padding: 0.8rem 2.5rem;
+    width: 370px;
+  }
+  option{
+    background-color: #000;
+    color: #fff;
+  }
+
+ .poster{
+    width: 200px;
+    height: 100px;
+  }
+
+
+  #divtd6 img{
+    width: 120px;
+    height: 150px;
+    }
+
+   
+  #table{
+    background-color: #000;
+    font-size: 20px;
+    box-shadow: 0 0 50px darkturquoise;
+    margin-left: 100px;
+  }
+
+  #table tr th{
+      /* padding:20px 30px; */
+      font-size: 20px;
   }
 
   
-img{
-  width: 140px;
-  height: 130px;
+  #Tabledata td{
+    /* padding: 10px; */
+  }
+
+  
+    button {
+      width: 100px;
+      padding: 5px;
+      height: 30px;
+      font-size: 18px;
+      background-color: #6582a9;
+      color: #fff;
+  
+    }
+  
+p,label{
+  color: #fff;
 }
+
+a{
+  color: #8ceabb;
+}
+
+.register img{
+    width: 130px;
+    height: 130px;
+    border-radius: 80px;
+  }

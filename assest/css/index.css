@@ -84,7 +84,7 @@ a {
   text-align: center;
   padding: 2rem 1rem;
   width: 500px;
-
+  border-radius: 20px;
 }
 
 .register input {

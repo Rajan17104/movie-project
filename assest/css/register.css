@@ -43,7 +43,7 @@ input::placeholder {
 }
 
 .form__field {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   
 }
 
@@ -52,10 +52,11 @@ input::placeholder {
   width: 370px;
   padding: 0.5rem 1rem;
   color: #fff;
+  margin-top: 10px;
 }
   #register-form input[type=email], #login-form input[type=password] {
   width: 80%;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .grid {
@@ -86,6 +87,7 @@ a {
   text-align: center;
   padding: 2rem 1rem;
   width: 500px;
+  border-radius: 20px;
 }
 
 .register input {
@@ -112,7 +114,7 @@ a {
 .register input[type=submit] {
   background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
   color: #fff;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   width: 100%;
 }
 

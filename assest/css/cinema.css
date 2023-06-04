@@ -48,6 +48,7 @@
 
   #movieForm input {
     outline: 0;
+    width: 370px;
     padding: 0.5rem 1rem;
     color: #fff;
   }
@@ -82,19 +83,24 @@
   }
   
   .register {
-    box-shadow: 0 0 250px #000;
+    box-shadow: 0 0 250px darkturquoise;
     text-align: center;
     padding: 4rem 1rem;
+    border-radius: 20px;
+    
   }
 
 
 
   .register input {
-    border: 1px solid #242c37;
+    border: 1px solid #fff;
     border-radius: 999px;
     background-color: transparent;
     text-align: center;
+    margin-top: 10px;
     color: #fff;
+    padding: 5px;
+    width: 300px;
   }
 
   .register input[type=email], .register input[type=password] {
@@ -114,8 +120,8 @@
   .register input[type=submit] {
     background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
     color: #fff;
-    margin-bottom: 6rem;
-    width: 100%;
+    margin-bottom: 3rem;
+    width: 80%;
   }
 
   #table{
@@ -132,6 +138,7 @@
     text-align: center;
     color: #fff;
     padding: 0.5rem 2.5rem;
+    width: 370px;
   }
   option{
     background-color: #000;
@@ -149,28 +156,36 @@
     height: 200px;
     }
 
-    #table{
-      background-color: #000;
+   
+  #table{
+    background-color: #000;
+    font-size: 20px;
+    box-shadow: 0 0 50px darkturquoise;
+    margin-left: 100px;
+  }
+
+  #table tr th{
+      padding:20px 30px;
       font-size: 20px;
-    }
+  }
+
   
-    #table tr th{
-        padding:20px 30px;
-        font-size: 20px;
-    }
+  #Tabledata td{
+    padding: 10px;
+  }
+
+
   
-    
-    #Tabledata td{
-      padding: 10px;
-    }
-  
-    button {
-      width: 100px;
-      padding: 5px;
-      height: 30px;
-      font-size: 18px;
-      background-color: #6582a9;
-      color: #fff;
-  
-    }
-  
+p{
+  color: #fff;
+}
+
+a{
+  color: #8ceabb;
+}
+
+img{
+  width: 130px;
+  height: 130px;
+  border-radius: 80px;
+}
