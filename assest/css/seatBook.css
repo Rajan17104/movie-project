@@ -68,18 +68,33 @@ h1{
 }
 
 #pay{
-    margin-left: 653px;
+    margin-left: 663px;
     margin-top: 20px;
-    width: 100px;
-    height: 20px;
+    /* width: 100px; */
+    height: 30px;
     width: 200px;
     border-radius:  10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
- 
+
+}
+
+#pay:hover{
+    background-color: rgb(33, 184, 88);
+    color: #fff;
 }
 
 button{
     /* padding: 5px; */
-    box-shadow: 0 0 200px rgb(0, 164, 209);;
+    box-shadow: 0 0 20px rgb(7, 201, 255);;
+}
+
+
+img{
+    margin-left: 36rem;
+   width: 400px;
+   height: 250px;
+}
+
+.btn-{
+    /* text-align: center; */
+    /* margin: 0 auto; */
 }

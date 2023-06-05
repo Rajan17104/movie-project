@@ -25,7 +25,7 @@ const seatonload = () => {
                 sprint += '<button class="btn" id="btn-'+i+'" onclick="Bookseat(' + v.price + ','+i+')">' + [i+1] + '</button>';
             };
         
-        })
+        });
 
         
      
@@ -59,7 +59,7 @@ const Bookseat = (price,i) =>{
 
     document.getElementById("btn-"+i).disabled=true;
 
-    document.getElementById("btn-"+i).style.backgroundColor="green";
+    document.getElementById("btn-"+i).style.backgroundColor="rgb(11, 241, 95)";
 
     document.getElementById("price").style.display="block"
 
