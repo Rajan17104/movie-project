@@ -7,7 +7,7 @@ const handleinsert = () => {
     let cName = document.getElementById("cinemaName").value
     let cLocation = document.getElementById("cinemalocation").value
     let cFacilites = document.getElementById("cinemafacilites").value
-    
+
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let rno = Math.floor(Math.random() * 10000);
 
@@ -26,13 +26,13 @@ const handleinsert = () => {
             location: cLocation,
             facilites: cFacilites
         }]));
-      
+
 
     }
 
     handlecinemaData(cName, cLocation, cFacilites, rno);
 
-    document.getElementById("table").style .display ='inline-block'
+    document.getElementById("table").style.display = 'inline-block'
 
     event.preventDefault();
 }
@@ -40,7 +40,7 @@ const handleinsert = () => {
 const handlecinemaData = (cName, cLocation, cFacilites, rno) => {
 
     let tr = document.createElement("tr");
-    tr.setAttribute("id","row"+rno)
+    tr.setAttribute("id", "row" + rno)
 
     let td = document.createElement("td");
     let td1 = document.createElement("td");
@@ -95,7 +95,7 @@ const handleRemove = (rno) => {
             localStorage.setItem("cinema", JSON.stringify(localdata));
         }
     })
-  
+
     // event.preventDefault();
 }
 
@@ -110,16 +110,16 @@ const handleupdate = (rno) => {
     document.getElementById("cinemafacilites").value = Fdata[0].facilites
 
     update = true;
-     uid = rno;
+    uid = rno;
 
     //  event.preventDefault();
 }
 
 
 const handledes = () => {
-    if(update){
-        handleupdateData(); 
-    }else{
+    if (update) {
+        handleupdateData();
+    } else {
         handleinsert();
     }
     event.preventDefault();
@@ -129,11 +129,11 @@ const handledes = () => {
 
 const handleupdateData = () => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
-   
+
     let newname = document.getElementById("cinemaName").value;
-    let newlocation= document.getElementById("cinemalocation").value;
+    let newlocation = document.getElementById("cinemalocation").value;
     let newfacilites = document.getElementById("cinemafacilites").value;
-   
+
     let uData = localdata.map((a) => {
         console.log(a);
         if (a.cid === uid) {
@@ -147,7 +147,7 @@ const handleupdateData = () => {
             return a;
         }
     })
-    localdata[uid]=uData
+    localdata[uid] = uData
     localStorage.setItem("cinema", JSON.stringify(uData));
     console.log(uData);
 
@@ -157,21 +157,21 @@ const handleupdateData = () => {
     tr.children[1].innerHTML = newlocation
     tr.children[2].innerHTML = newfacilites
 
-   event.preventDefault();
+    event.preventDefault();
 
 
 }
 
 
-const handleonload = () =>{
-   
+const handleonload = () => {
+
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    if(localdata){
-        localdata.map((a) =>{
-            handlecinemaData(a.name , a.location,  a.facilites ,a.cid);
+    if (localdata) {
+        localdata.map((a) => {
+            handlecinemaData(a.name, a.location, a.facilites, a.cid);
 
-            document.getElementById("table").style .display ='inline-block'
+            document.getElementById("table").style.display = 'inline-block'
         })
     }
 
@@ -179,6 +179,6 @@ const handleonload = () =>{
 }
 
 
-window.onload=handleonload();
+window.onload = handleonload();
 
 cinemaformRef.addEventListener("submit", handledes)
